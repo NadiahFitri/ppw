@@ -64,3 +64,6 @@ Berikut adalah definisi web mining menurut beberapa ahli :
 
 ## Tantangan Pemrosesan Data Web
 Website adalah sekumpulan halaman web saling berhubungan yang umumnya berada pada peladen yang sama berisikan kumpulan informasi yang disediakan oleh individu, kelompok, atau organisasi. Ditulis sebagai berkas plain text yang diatur dan dikombinasikan dengan instruksi berbasis HTML atau XHTML. Tantangan dalam pemrosesan data web adalah web itu sangat besar, kompleks, dinamis dan bukan domain spesifik sehingga sulit untuk dilakukan penambangan data.
+
+## Taksonomi Web Mining
+### 1. Web Content Mining
