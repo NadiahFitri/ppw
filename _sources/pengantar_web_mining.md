@@ -82,27 +82,27 @@ Proses otomatis untuk menemukan informasi yang bermanfaat dari dokumen web denga
 #### Aplikasi Text Mining dalam Web Content Mining
 - **Ekstraksi Informasi**
 
-Ekstraksi Informasi bertujuan mengambil informasi terstruktur dari konten web yang umumnya tidak terstruktur atau semi-terstruktur, seperti artikel, ulasan, komentar, tabel HTML, atau data yang tertanam dalam dokumen web. Ekstraksi informasi fokus pada identifikasi entitas, hubungan antar entitas, serta atribut penting dari teks. Proses ini memungkinkan data mentah yang tersebar di web diubah jadi informasi yang lebih mudah dianalisis dan digunakan kembali.
+  Ekstraksi Informasi bertujuan mengambil informasi terstruktur dari konten web yang umumnya tidak terstruktur atau semi-terstruktur, seperti artikel, ulasan, komentar, tabel HTML, atau data yang tertanam dalam dokumen web. Ekstraksi informasi fokus pada identifikasi entitas, hubungan antar entitas, serta atribut penting dari teks. Proses ini memungkinkan data mentah yang tersebar di web diubah jadi informasi yang lebih mudah dianalisis dan digunakan kembali.
 
 - **Topic Modelling**
 
-Topic Modelling adalah pendekatan text mining untuk mengidentifikasi topik-topik yang muncul dalam suatu data teks berdasarkan kemiripannya tanpa harus memiliki label/kategori sebelumnya. Pendekatan ini menggunakan model statistik untuk menemukan topik dalam dataset teks, kata mana yang berkontribusi ke suatu topik, dan topik mana yang berkontribusi pada suatu dokumen. Tujuan topic modelling adalah agar tanpa membaca semua isi teks, user tetap bisa memahami isinya.
+  Topic Modelling adalah pendekatan text mining untuk mengidentifikasi topik-topik yang muncul dalam suatu data teks berdasarkan kemiripannya tanpa harus memiliki label/kategori sebelumnya. Pendekatan ini menggunakan model statistik untuk menemukan topik dalam dataset teks, kata mana yang berkontribusi ke suatu topik, dan topik mana yang berkontribusi pada suatu dokumen. Tujuan topic modelling adalah agar tanpa membaca semua isi teks, user tetap bisa memahami isinya.
 
 - **Peringkasan Dokumen**
 
-Peringkasan dokumen bertujuan menghasilkan ringkasan otomatis dari dokumen sehingga hanya menyajikan informasi utama tanpa menghilangkan makna penting yang terkandung di dalam teks asli. peringkasan dokumen dapat mengatasi kelebihan informasi di web, karena dapat menyajikan konten yang ringkas, relevan, dan mudah dipahami pengguna sehingga membantu pengguna memahami isi utama dari artikel, berita, ulasan, atau laporan tanpa harus membaca seluruh isi dokumen.
+  Peringkasan dokumen bertujuan menghasilkan ringkasan otomatis dari dokumen sehingga hanya menyajikan informasi utama tanpa menghilangkan makna penting yang terkandung di dalam teks asli. peringkasan dokumen dapat mengatasi kelebihan informasi di web, karena dapat menyajikan konten yang ringkas, relevan, dan mudah dipahami pengguna sehingga membantu pengguna memahami isi utama dari artikel, berita, ulasan, atau laporan tanpa harus membaca seluruh isi dokumen.
 
 - **Klasifikasi Dokumen (Sentiment Analisis, Opinion Mining)**
 
-Dalam konteks web content mining, salah satu bentuk penerapan klasifikasi adalah sentiment analysis atau opinion mining, yaitu proses menganalisis teks untuk menentukan sikap, opini, atau emosi penulis terhadap suatu objek. Tujuan kalsifikasi dokumen agar dokumen atau gambar yang belum pernah dilihat dikategorikan dalam kelas dengan akurat. Sentiment analysis mengklasifikasikan polaritas teks (positif, negative, netral) yang diberikan pada tingkat dokumen, kalimat, atau fitur/atribut seperti ulasan. Opinion mining tidak hanya mengukur polaritas, tetapi juga menggali aspek yang menjadi perhatian, seperti kualitas layanan. Klasifikasi dokumen betujuan membantu penyedia layanan memahami persepsi pengguna dan  mendukung pengambilan keputusan berbasis data.
+  Dalam konteks web content mining, salah satu bentuk penerapan klasifikasi adalah sentiment analysis atau opinion mining, yaitu proses menganalisis teks untuk menentukan sikap, opini, atau emosi penulis terhadap suatu objek. Tujuan kalsifikasi dokumen agar dokumen atau gambar yang belum pernah dilihat dikategorikan dalam kelas dengan akurat. Sentiment analysis mengklasifikasikan polaritas teks (positif, negative, netral) yang diberikan pada tingkat dokumen, kalimat, atau fitur/atribut seperti ulasan. Opinion mining tidak hanya mengukur polaritas, tetapi juga menggali aspek yang menjadi perhatian, seperti kualitas layanan. Klasifikasi dokumen betujuan membantu penyedia layanan memahami persepsi pengguna dan  mendukung pengambilan keputusan berbasis data.
 
 - **Pengelompokan Dokumen (Sistem Rekomendasi)**
 
-Pengelompokan dokumen bertujuan mengelompokkan sekumpulan dokumen dalam beberapa kelompok berdasarkan tingkat kesamaan isi, sehingga dokumen dalam satu kelompok lebih mirip satu sama lain dibandingkan dengan dokumen dari kelompok lain. Dalam konteks sistem rekomendasi, pengelompokan dokumen berguna untuk menyajikan informasi relevan sesuai minat atau kebutuhan pengguna. Contohnya pada mesin pencari, hasil pencarian dikelompokkan ke dalam topik tertentu agar mudah dipahami pengguna.
+  Pengelompokan dokumen bertujuan mengelompokkan sekumpulan dokumen dalam beberapa kelompok berdasarkan tingkat kesamaan isi, sehingga dokumen dalam satu kelompok lebih mirip satu sama lain dibandingkan dengan dokumen dari kelompok lain. Dalam konteks sistem rekomendasi, pengelompokan dokumen berguna untuk menyajikan informasi relevan sesuai minat atau kebutuhan pengguna. Contohnya pada mesin pencari, hasil pencarian dikelompokkan ke dalam topik tertentu agar mudah dipahami pengguna.
 
 - **Ektraksi Kata Kunci**
 
-Ekstraksi kata kunci bertujuan mengidentifikasi kata atau frasa yang paling mewakili isi dokumen sehingga dapat digunakan sebagai ringkasan singkat atau penanda topik utama dari suatu teks. Web content mining mengekstraksi kata kunci yang terkandung pada dokumen. Dengan adanya kata kunci yang relevan, sistem dapat lebih mudah melakukan pengindeksan, pencarian, maupun rekomendasi konten yang sesuai kebutuhan pengguna.
+  Ekstraksi kata kunci bertujuan mengidentifikasi kata atau frasa yang paling mewakili isi dokumen sehingga dapat digunakan sebagai ringkasan singkat atau penanda topik utama dari suatu teks. Web content mining mengekstraksi kata kunci yang terkandung pada dokumen. Dengan adanya kata kunci yang relevan, sistem dapat lebih mudah melakukan pengindeksan, pencarian, maupun rekomendasi konten yang sesuai kebutuhan pengguna.
 
 
 
