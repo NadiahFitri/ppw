@@ -10,21 +10,21 @@ Check out the content pages bundled with this sample book to see more.
 ```{tableofcontents}
 ``` -->
 
-**Hello, Welcome 🏡**
+# **Hello, Welcome 🏡**
 
-Hallo 👋, perkenalkan saya Nadiah Fitri, mahasiswa Teknik Informatika, Universitas Trunojoyo Madura.
+Hallo 👋, perkenalkan saya **Nadiah Fitri**, mahasiswa **Teknik Informatika**, Universitas Trunojoyo Madura.
 
-Web statis ini dibuat untuk mata kuliah Pencarian dan Penambangan Web.
+Web statis ini dibuat untuk mata kuliah **Pencarian dan Penambangan Web**.
 
 Berikut data diri saya :
 
-Nama : Nadiah Fitri Hidayati
+- **Nama** : Nadiah Fitri Hidayati
 
-Nim : 220411100075
+- **Nim** : 220411100075
 
-Mata Kuliah : Pencarian dan Penambangan Web - IF7B
+- **Mata Kuliah** : Pencarian dan Penambangan Web - IF7B
 
-Email : nadiahfitrihidayati1@gmail.com
+- **Email** : nadiahfitrihidayati1@gmail.com
 
 Welcome to my Project 🙌
 
