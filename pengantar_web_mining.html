@@ -179,7 +179,7 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Pengantar Web Mining</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Pengantar Web Mining</strong></a></li>
 
 </ul>
 
@@ -376,12 +376,22 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Pengantar Web Mining</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Pengantar Web Mining</strong></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#web-mining">Web Mining</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definisi-web-mining">Definisi Web Mining</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tantangan-pemrosesan-data-web">Tantangan Pemrosesan Data Web</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#taksonomi-web-mining">Taksonomi Web Mining</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#web-content-mining">1. Web Content Mining</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#web-content-mining">1. Web Content Mining</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#aplikasi-text-mining-dalam-web-content-mining">Aplikasi Text Mining dalam Web Content Mining</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#web-usage-mining">2. Web Usage Mining</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#proses-web-usage-mining">Proses Web Usage Mining</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing">1. Preprocessing</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -438,7 +448,7 @@ If you have a markdown file and you'd like to quickly add YAML metadata to it, s
 jupyter-book myst init path/to/markdownfile.md
 ``` -->
 <section class="tex2jax_ignore mathjax_ignore" id="pengantar-web-mining">
-<h1>Pengantar Web Mining<a class="headerlink" href="#pengantar-web-mining" title="Link to this heading">#</a></h1>
+<h1><strong>Pengantar Web Mining</strong><a class="headerlink" href="#pengantar-web-mining" title="Link to this heading">#</a></h1>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="web-mining">
 <h1>Web Mining<a class="headerlink" href="#web-mining" title="Link to this heading">#</a></h1>
@@ -459,6 +469,34 @@ jupyter-book myst init path/to/markdownfile.md
 <h2>Taksonomi Web Mining<a class="headerlink" href="#taksonomi-web-mining" title="Link to this heading">#</a></h2>
 <section id="web-content-mining">
 <h3>1. Web Content Mining<a class="headerlink" href="#web-content-mining" title="Link to this heading">#</a></h3>
+<p>Proses otomatis untuk menemukan informasi yang bermanfaat dari dokumen web dengan mengekstraksi keyword pada dokumen disebut sebagai Web Content Mining. Fokus pada konten halaman web seperti teks, gambar, audio, video, metadata dan hyperlink.</p>
+<section id="aplikasi-text-mining-dalam-web-content-mining">
+<h4>Aplikasi Text Mining dalam Web Content Mining<a class="headerlink" href="#aplikasi-text-mining-dalam-web-content-mining" title="Link to this heading">#</a></h4>
+<p><strong>a. Ekstraksi Informasi</strong>
+Ekstraksi Informasi bertujuan mengambil informasi terstruktur dari konten web yang umumnya tidak terstruktur atau semi-terstruktur, seperti artikel, ulasan, komentar, tabel HTML, atau data yang tertanam dalam dokumen web. Ekstraksi informasi fokus pada identifikasi entitas, hubungan antar entitas, serta atribut penting dari teks. Proses ini memungkinkan data mentah yang tersebar di web diubah jadi informasi yang lebih mudah dianalisis dan digunakan kembali.
+<strong>b. Topic Modelling</strong>
+Topic Modelling adalah pendekatan text mining untuk mengidentifikasi topik-topik yang muncul dalam suatu data teks berdasarkan kemiripannya tanpa harus memiliki label/kategori sebelumnya. Pendekatan ini menggunakan model statistik untuk menemukan topik dalam dataset teks, kata mana yang berkontribusi ke suatu topik, dan topik mana yang berkontribusi pada suatu dokumen. Tujuan topic modelling adalah agar tanpa membaca semua isi teks, user tetap bisa memahami isinya.
+<strong>c. Peringkasan Dokumen</strong>
+Peringkasan dokumen bertujuan menghasilkan ringkasan otomatis dari dokumen sehingga hanya menyajikan informasi utama tanpa menghilangkan makna penting yang terkandung di dalam teks asli. peringkasan dokumen dapat mengatasi kelebihan informasi di web, karena dapat menyajikan konten yang ringkas, relevan, dan mudah dipahami pengguna sehingga membantu pengguna memahami isi utama dari artikel, berita, ulasan, atau laporan tanpa harus membaca seluruh isi dokumen.
+<strong>d. Klasifikasi Dokumen (Sentiment Analisis, Opinion Mining)</strong>
+Dalam konteks web content mining, salah satu bentuk penerapan klasifikasi adalah sentiment analysis atau opinion mining, yaitu proses menganalisis teks untuk menentukan sikap, opini, atau emosi penulis terhadap suatu objek. Tujuan kalsifikasi dokumen agar dokumen atau gambar yang belum pernah dilihat dikategorikan dalam kelas dengan akurat. Sentiment analysis mengklasifikasikan polaritas teks (positif, negative, netral) yang diberikan pada tingkat dokumen, kalimat, atau fitur/atribut seperti ulasan. Opinion mining tidak hanya mengukur polaritas, tetapi juga menggali aspek yang menjadi perhatian, seperti kualitas layanan. Klasifikasi dokumen betujuan membantu penyedia layanan memahami persepsi pengguna dan  mendukung pengambilan keputusan berbasis data.
+<strong>e. Pengelompokan Dokumen (Sistem Rekomendasi)</strong>
+Pengelompokan dokumen bertujuan mengelompokkan sekumpulan dokumen dalam beberapa kelompok berdasarkan tingkat kesamaan isi, sehingga dokumen dalam satu kelompok lebih mirip satu sama lain dibandingkan dengan dokumen dari kelompok lain. Dalam konteks sistem rekomendasi, pengelompokan dokumen berguna untuk menyajikan informasi relevan sesuai minat atau kebutuhan pengguna. Contohnya pada mesin pencari, hasil pencarian dikelompokkan ke dalam topik tertentu agar mudah dipahami pengguna.
+<strong>f. Ektraksi Kata Kunci</strong>
+Ekstraksi kata kunci bertujuan mengidentifikasi kata atau frasa yang paling mewakili isi dokumen sehingga dapat digunakan sebagai ringkasan singkat atau penanda topik utama dari suatu teks. Web content mining mengekstraksi kata kunci yang terkandung pada dokumen. Dengan adanya kata kunci yang relevan, sistem dapat lebih mudah melakukan pengindeksan, pencarian, maupun rekomendasi konten yang sesuai kebutuhan pengguna.</p>
+</section>
+</section>
+<section id="web-usage-mining">
+<h3>2. Web Usage Mining<a class="headerlink" href="#web-usage-mining" title="Link to this heading">#</a></h3>
+<p>Web Usage Mining mengekstraksi informasi dari data yang dihasilkan pengguna saat mengakses halaman web yang ditandai melalui informasi dari log, profil pengguna, click stream, cookies, metadata dan query. Manfaat web usage mining yaitu memodifikasi halaman berdasarkan profil pengguna, mengidentifikasi ketertarikan pelanggan terhadap produk tertentu, dan menentukan target pasar yang tepat.</p>
+<section id="proses-web-usage-mining">
+<h4>Proses Web Usage Mining<a class="headerlink" href="#proses-web-usage-mining" title="Link to this heading">#</a></h4>
+<section id="preprocessing">
+<h5>1. Preprocessing<a class="headerlink" href="#preprocessing" title="Link to this heading">#</a></h5>
+<p>Preprocessing bertujuan untuk melakukan standarisasi data dan menghilangkan bagian–bagian data yang tidak diperlukan dalam proses mining.
+<strong>a. Data Cleaning :</strong> membersihkan file log tidak relevan dari data dengan proses mining.</p>
+</section>
+</section>
 </section>
 </section>
 </section>
@@ -499,7 +537,7 @@ jupyter-book myst init path/to/markdownfile.md
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Profile</p>
+        <p class="prev-next-title"><strong>Profile</strong></p>
       </div>
     </a>
 </div>
@@ -518,12 +556,22 @@ jupyter-book myst init path/to/markdownfile.md
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Pengantar Web Mining</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Pengantar Web Mining</strong></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#web-mining">Web Mining</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definisi-web-mining">Definisi Web Mining</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tantangan-pemrosesan-data-web">Tantangan Pemrosesan Data Web</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#taksonomi-web-mining">Taksonomi Web Mining</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#web-content-mining">1. Web Content Mining</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#web-content-mining">1. Web Content Mining</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#aplikasi-text-mining-dalam-web-content-mining">Aplikasi Text Mining dalam Web Content Mining</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#web-usage-mining">2. Web Usage Mining</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#proses-web-usage-mining">Proses Web Usage Mining</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing">1. Preprocessing</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

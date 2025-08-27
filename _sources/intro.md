@@ -1,4 +1,4 @@
-# Profile
+# **Profile**
 
 <!-- This is a small sample book to give you a feel for how book content is
 structured.
@@ -10,7 +10,7 @@ Check out the content pages bundled with this sample book to see more.
 ```{tableofcontents}
 ``` -->
 
-# **Hello, Welcome 🏡**
+# Hello, Welcome 🏡
 
 Hallo 👋, perkenalkan saya **Nadiah Fitri**, mahasiswa **Teknik Informatika**, Universitas Trunojoyo Madura.
 
