@@ -132,7 +132,7 @@ Pattern Discovery adalah pencarian pola akses yang dilakukan oleh user aplikasi.
 - **Dependency Modeling :** teknik yang mencari hubungan antara satu variabel dengan variabel yang lain dalam web untuk prediksi pola di masa depan.
 
 
-##### 2. Pattern Analysis
+##### 3. Pattern Analysis
 Pattern Analysis adalah proses visualisasi hasil analisis pola yang telah dilakukan. Dari hasil visualisasi ini, dapat dibuat suatu keputusan seperti mengubah tampilan situs web, mengoptimalkan navigasi website, atau meningkatkan kemampuan website dengan melakukan caching halaman-halaman tertentu yang sering dikunjungi.
 
 
