@@ -181,6 +181,7 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Pengantar Web Mining</strong></a></li>
 
+
 </ul>
 
     </div>
@@ -389,12 +390,26 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#proses-web-usage-mining">Proses Web Usage Mining</a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing">1. Preprocessing</a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#pattern-discovery">2. Pattern Discovery</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#pattern-analysis">2. Pattern Analysis</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#clickstream-analysis">Clickstream Analysis</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#aplikasi-web-usage-mining">Aplikasi Web Usage Mining</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#web-structure-mining">3. Web Structure Mining</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sumber-graph-web">Sumber Graph Web</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#aplikasi-web-structure-mining">Aplikasi Web Structure Mining</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-web-structure-mining">Implementasi Web Structure Mining</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proses-web-mining">Proses Web Mining</a></li>
 </ul>
 </li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#text-mining">Text Mining</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tugas-text-mining">Tugas Text Mining</a></li>
 </ul>
 </li>
 </ul>
@@ -505,8 +520,8 @@ jupyter-book myst init path/to/markdownfile.md
 <p>Preprocessing bertujuan untuk melakukan standarisasi data dan menghilangkan bagian–bagian data yang tidak diperlukan dalam proses mining.</p>
 <ul class="simple">
 <li><p><strong>Data Cleaning :</strong> membersihkan file log tidak relevan dari data dengan proses mining.</p></li>
-<li><p><strong>User Identification :</strong> proses pengidentifikasian user.
-<strong>Session Identification  :</strong> Halaman yang diakses dibagi ke dalam sesi tertentu agar tercipta satu sesi untuk setiap user yang mengakses.</p></li>
+<li><p><strong>User Identification :</strong> proses pengidentifikasian user.</p></li>
+<li><p><strong>Session Identification  :</strong> Halaman yang diakses dibagi ke dalam sesi tertentu agar tercipta satu sesi untuk setiap user yang mengakses.</p></li>
 <li><p><strong>Path Completion :</strong> melengkapi path yang mungkin belum lengkap karena tersimpan pada file log.</p></li>
 <li><p><strong>Transaction Identification :</strong> mengindentifikasi sejumlah sesi tertentu agar dapat menunjukkan proses transaksi yang dilakukan oleh user.</p></li>
 </ul>
@@ -516,10 +531,88 @@ jupyter-book myst init path/to/markdownfile.md
 <p>Pattern Discovery adalah pencarian pola akses yang dilakukan oleh user aplikasi.</p>
 <ul class="simple">
 <li><p><strong>Statistical Analysis :</strong> teknik untuk mendapatkan informasi atau pengetahuan dari pola akses pengguna. Contohnya pola akses pengguna dilihat dari waktu akses untuk setiap harinya.</p></li>
+<li><p><strong>Association Rules :</strong> Output yang dihasilkan berupa pola akses terhadap halaman-halaman web. Dari pola tersebut dapat diketahui halaman mana saja yang selalu diakses secara bersamaan oleh user.</p></li>
+<li><p><strong>Clustering :</strong> teknik mengelompokan sekumpulan objek fisik maupun abstrak ke dalam kelas tertentu berdasarkan kesamaannya.</p></li>
+<li><p><strong>Classification :</strong> proses pengelompokan berdasarkan kelas yang sudah didefinisikan sebelumnya.</p></li>
+<li><p><strong>Sequential Pattern :</strong> teknik analisis pola urutan akses halaman web oleh user.</p></li>
+<li><p><strong>Dependency Modeling :</strong> teknik yang mencari hubungan antara satu variabel dengan variabel yang lain dalam web untuk prediksi pola di masa depan.</p></li>
+</ul>
+</section>
+<section id="pattern-analysis">
+<h5>2. Pattern Analysis<a class="headerlink" href="#pattern-analysis" title="Link to this heading">#</a></h5>
+<p>Pattern Analysis adalah proses visualisasi hasil analisis pola yang telah dilakukan. Dari hasil visualisasi ini, dapat dibuat suatu keputusan seperti mengubah tampilan situs web, mengoptimalkan navigasi website, atau meningkatkan kemampuan website dengan melakukan caching halaman-halaman tertentu yang sering dikunjungi.</p>
+</section>
+</section>
+<section id="clickstream-analysis">
+<h4>Clickstream Analysis<a class="headerlink" href="#clickstream-analysis" title="Link to this heading">#</a></h4>
+<p>Analisis Clickstream adalah ruang lingkup untuk analisis frekuensi dalam kumpulan data kunjungan atau analisis pola penggunaan. Clickstream adalah catatan perilaku pelanggan di Internet, termasuk setiap situs dan setiap halaman web dari setiap situs web yang dikunjungi pengguna, berapa lama pengguna berada di sebuah halaman atau situs, dalam struktur apa situs tersebut diperiksa, setiap grup berita yang diikuti pengguna, dan bahkan alamat e-mail dari surat yang dikirim dan diterima pengguna.</p>
+</section>
+<section id="aplikasi-web-usage-mining">
+<h4>Aplikasi Web Usage Mining<a class="headerlink" href="#aplikasi-web-usage-mining" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Rekomendasi produk : fitur yang memprediksi dan merekomendasikan produk paling mungkin diminati oleh seorang pengguna, berdasarkan data seperti perilaku, preferensi, atau kesamaan dengan pengguna lain.</p></li>
+<li><p>Pencarian yang dipersonalisasi : pencarian informasi di mana hasil pencarian disesuaikan dengan preferensi, perilaku, dan konteks pengguna individu.</p></li>
+<li><p>Clickstream analysis : ruang lingkup untuk analisis frekuensi dalam kumpulan data kunjungan atau analisis pola penggunaan (6).</p></li>
+<li><p>User profiling : data interaksi web dapat digunakan untuk membentuk profil pengguna, yang mencakup preferensi, minat, dan kebiasaan. Profil ini bermanfaat bagi perusahaan untuk segmentasi pelanggan dan optimalisasi strategi pemasaran.</p></li>
+</ul>
+</section>
+</section>
+<section id="web-structure-mining">
+<h3>3. Web Structure Mining<a class="headerlink" href="#web-structure-mining" title="Link to this heading">#</a></h3>
+<p>Web Structure Mining adalah teknik  menemukan struktur link dari hyperlink supaya mengetahui keterkaitan antara suatu halaman web dengan halaman web lainnya, kemudian akan digunakan untuk membangun rangkuman website dan halaman web.</p>
+<section id="sumber-graph-web">
+<h4>Sumber Graph Web<a class="headerlink" href="#sumber-graph-web" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Pencarian web (web crawls) termasuk halaman HTML dan tautan (hyperlinks),</p></li>
+<li><p>Jaringan sosial yang mencakup hubungan eksplisit antar pengguna (contoh: jaringan teman di Facebook),</p></li>
+<li><p>Jenis data komunitas lainnya (forum diskusi, percakapan email, dan lainnya).</p></li>
+</ul>
+</section>
+<section id="aplikasi-web-structure-mining">
+<h4>Aplikasi Web Structure Mining<a class="headerlink" href="#aplikasi-web-structure-mining" title="Link to this heading">#</a></h4>
+<p>Grafik Web adalah representasi visual dari halaman web sebagai simpul (node) dan hyperlink sebagai sisi (edge). Simpul (node) merepresentasikan halaman web atau aktor dalam jejaring sosial, sedangkan sisi (edge) menggambarkan hubungan atau tautan antar simpul. Identifikasi simpul penting bertujuan menemukan node yang memiliki peran dominan atau pengaruh besar dalam jaringan. Konsep ini erat kaitannya dengan centrality, yaitu ukuran yang digunakan untuk menilai sejauh mana sebuah node menempati posisi strategis dalam jaringan. Simpul penting berguna untuk mencari halaman penting (seperti situs berita utama), mengidentifikasi pengguna influencer di media social dan mendeteksi sumber informasi terpercaya. Kegunaan analisis struktur web diantaranya menentukan otoritas halaman (seperti PageRank), mendeteksi komunitas online, menganalisis jaringan sosial digital.</p>
+</section>
+<section id="implementasi-web-structure-mining">
+<h4>Implementasi Web Structure Mining<a class="headerlink" href="#implementasi-web-structure-mining" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Google Search: Menggunakan PageRank untuk menentukan urutan hasil pencarian.</p></li>
+<li><p>Twitter/Instagram: Menampilkan akun influencer pada rekomendasi.</p></li>
+<li><p>Analisis Jaringan Sosial: Mencari pemimpin komunitas atau penyebar berita palsu.</p></li>
 </ul>
 </section>
 </section>
 </section>
+<section id="proses-web-mining">
+<h2>Proses Web Mining<a class="headerlink" href="#proses-web-mining" title="Link to this heading">#</a></h2>
+<ul>
+<li><p><strong>Data Gathering and Exploration</strong></p>
+<p>Tahap pengumpulan data dari web melalui web crawling, penggunaan web APIs, atau ekstraksi langsung dari dokumen web. Setelah data terkumpul, dilakukan eksplorasi untuk memahami data, ringkasan statistic data web dan visualisasi data agar pola awal lebih mudah diamati.</p>
+</li>
+<li><p><strong>Preprocessing and Transformation</strong></p>
+<p>Pembersihan dan tranformasi data agar sesuai metode analisis. Tahapannya meliputi reduksi dimensi, seleksi fitur, diskritisasi, binarisasi, serta transformasi teks ke dalam bentuk vektor (embeddings).</p>
+</li>
+<li><p><strong>Actual Data Mining</strong></p>
+<p>Tahap membangun model dan menemukan pola dari data yang telah di proses sebelumnya. Berbagai metode data mining dapat diterapkan, seperti klasifikasi, clustering, asosiasi, maupun prediksi. Prosesnya iteratif, karena memerlukan eksperimen hyperparameter, perbaikan praproses, dan peningkatan jumlah serta kualitas data latih.</p>
+</li>
+<li><p><strong>Evaluation and Interpretation</strong></p>
+<p>Tahap evaluasi hasil model atau pola yang ditemukan untuk memastikan model dan data layak, valid, bermanfaat, dan sesuai dengan tujuan analisis. Evaluasi dapat dilakukan dengan pengukuran akurasi, cross validation, atau analisis kualitas pola.</p>
+</li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="text-mining">
+<h1>Text Mining<a class="headerlink" href="#text-mining" title="Link to this heading">#</a></h1>
+<p>Text mining adalah penemuan informasi baru dan berkualitas oleh komputer dengan secara otomatis mengekstrak informasi dari sumber-sumber yang berbeda. Kunci dari proses ini adalah menggabungkan informasi yang berhasil diekstraksi dari berbagai sumber.</p>
+<section id="tugas-text-mining">
+<h2>Tugas Text Mining<a class="headerlink" href="#tugas-text-mining" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Ekstraksi Informasi (Information Extraction) : Idetifikasi frasa kunci dan hubungan dalam teks dengan melihat urutan tertentu melalui pencocokan pola.</p></li>
+<li><p>Pelacakan Topik (Toping Tracking) : Penentuan dokumen lain yang menarik pengguna berdasarkan profil dan dokumen yang dilihat pengguna tersebut.</p></li>
+<li><p>Perangkuman (Summarization) : Pembuatan rangkuman dokumen.</p></li>
+<li><p>Kategorisasi (Categorization) : Penentuan tema suatu teks dan pengelompokan teks ke dalam kategori yang telah ditentukan berdasarkan tema tersebut.</p></li>
+<li><p>Penggugusan (Clustering) : Pengelompokan dokumen yang serupa tanpa penentuan kategori sebelumnya.</p></li>
+<li><p>Penjawaban Pertanyaan (Question Answering) : Pencocokan pola berdasarkan pengetahuan untuk memberikan jawaban terbaik terhadap suatu pertanyaan (7).</p></li>
+</ul>
 </section>
 </section>
 
@@ -591,12 +684,26 @@ jupyter-book myst init path/to/markdownfile.md
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#proses-web-usage-mining">Proses Web Usage Mining</a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing">1. Preprocessing</a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#pattern-discovery">2. Pattern Discovery</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#pattern-analysis">2. Pattern Analysis</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#clickstream-analysis">Clickstream Analysis</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#aplikasi-web-usage-mining">Aplikasi Web Usage Mining</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#web-structure-mining">3. Web Structure Mining</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sumber-graph-web">Sumber Graph Web</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#aplikasi-web-structure-mining">Aplikasi Web Structure Mining</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-web-structure-mining">Implementasi Web Structure Mining</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proses-web-mining">Proses Web Mining</a></li>
 </ul>
 </li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#text-mining">Text Mining</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tugas-text-mining">Tugas Text Mining</a></li>
 </ul>
 </li>
 </ul>

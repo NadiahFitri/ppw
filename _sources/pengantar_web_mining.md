@@ -106,8 +106,10 @@ Proses otomatis untuk menemukan informasi yang bermanfaat dari dokumen web denga
 
 
 
+
 ### 2. Web Usage Mining
 Web Usage Mining mengekstraksi informasi dari data yang dihasilkan pengguna saat mengakses halaman web yang ditandai melalui informasi dari log, profil pengguna, click stream, cookies, metadata dan query. Manfaat web usage mining yaitu memodifikasi halaman berdasarkan profil pengguna, mengidentifikasi ketertarikan pelanggan terhadap produk tertentu, dan menentukan target pasar yang tepat.
+
 
 
 #### Proses Web Usage Mining
@@ -115,10 +117,93 @@ Web Usage Mining mengekstraksi informasi dari data yang dihasilkan pengguna saat
 Preprocessing bertujuan untuk melakukan standarisasi data dan menghilangkan bagian–bagian data yang tidak diperlukan dalam proses mining.
 - **Data Cleaning :** membersihkan file log tidak relevan dari data dengan proses mining.
 - **User Identification :** proses pengidentifikasian user.
-**Session Identification  :** Halaman yang diakses dibagi ke dalam sesi tertentu agar tercipta satu sesi untuk setiap user yang mengakses.
+- **Session Identification  :** Halaman yang diakses dibagi ke dalam sesi tertentu agar tercipta satu sesi untuk setiap user yang mengakses.
 - **Path Completion :** melengkapi path yang mungkin belum lengkap karena tersimpan pada file log.
 - **Transaction Identification :** mengindentifikasi sejumlah sesi tertentu agar dapat menunjukkan proses transaksi yang dilakukan oleh user.
+
 
 ##### 2. Pattern Discovery
 Pattern Discovery adalah pencarian pola akses yang dilakukan oleh user aplikasi.
 - **Statistical Analysis :** teknik untuk mendapatkan informasi atau pengetahuan dari pola akses pengguna. Contohnya pola akses pengguna dilihat dari waktu akses untuk setiap harinya.
+- **Association Rules :** Output yang dihasilkan berupa pola akses terhadap halaman-halaman web. Dari pola tersebut dapat diketahui halaman mana saja yang selalu diakses secara bersamaan oleh user.
+- **Clustering :** teknik mengelompokan sekumpulan objek fisik maupun abstrak ke dalam kelas tertentu berdasarkan kesamaannya.
+- **Classification :** proses pengelompokan berdasarkan kelas yang sudah didefinisikan sebelumnya.
+- **Sequential Pattern :** teknik analisis pola urutan akses halaman web oleh user.
+- **Dependency Modeling :** teknik yang mencari hubungan antara satu variabel dengan variabel yang lain dalam web untuk prediksi pola di masa depan.
+
+
+##### 2. Pattern Analysis
+Pattern Analysis adalah proses visualisasi hasil analisis pola yang telah dilakukan. Dari hasil visualisasi ini, dapat dibuat suatu keputusan seperti mengubah tampilan situs web, mengoptimalkan navigasi website, atau meningkatkan kemampuan website dengan melakukan caching halaman-halaman tertentu yang sering dikunjungi.
+
+
+
+#### Clickstream Analysis
+Analisis Clickstream adalah ruang lingkup untuk analisis frekuensi dalam kumpulan data kunjungan atau analisis pola penggunaan. Clickstream adalah catatan perilaku pelanggan di Internet, termasuk setiap situs dan setiap halaman web dari setiap situs web yang dikunjungi pengguna, berapa lama pengguna berada di sebuah halaman atau situs, dalam struktur apa situs tersebut diperiksa, setiap grup berita yang diikuti pengguna, dan bahkan alamat e-mail dari surat yang dikirim dan diterima pengguna.
+
+
+
+#### Aplikasi Web Usage Mining
+- Rekomendasi produk : fitur yang memprediksi dan merekomendasikan produk paling mungkin diminati oleh seorang pengguna, berdasarkan data seperti perilaku, preferensi, atau kesamaan dengan pengguna lain.
+- Pencarian yang dipersonalisasi : pencarian informasi di mana hasil pencarian disesuaikan dengan preferensi, perilaku, dan konteks pengguna individu.
+- Clickstream analysis : ruang lingkup untuk analisis frekuensi dalam kumpulan data kunjungan atau analisis pola penggunaan (6). 
+- User profiling : data interaksi web dapat digunakan untuk membentuk profil pengguna, yang mencakup preferensi, minat, dan kebiasaan. Profil ini bermanfaat bagi perusahaan untuk segmentasi pelanggan dan optimalisasi strategi pemasaran.
+
+
+
+
+### 3. Web Structure Mining
+Web Structure Mining adalah teknik  menemukan struktur link dari hyperlink supaya mengetahui keterkaitan antara suatu halaman web dengan halaman web lainnya, kemudian akan digunakan untuk membangun rangkuman website dan halaman web.
+
+
+
+#### Sumber Graph Web
+- Pencarian web (web crawls) termasuk halaman HTML dan tautan (hyperlinks),
+- Jaringan sosial yang mencakup hubungan eksplisit antar pengguna (contoh: jaringan teman di Facebook),
+- Jenis data komunitas lainnya (forum diskusi, percakapan email, dan lainnya).
+
+
+
+#### Aplikasi Web Structure Mining
+Grafik Web adalah representasi visual dari halaman web sebagai simpul (node) dan hyperlink sebagai sisi (edge). Simpul (node) merepresentasikan halaman web atau aktor dalam jejaring sosial, sedangkan sisi (edge) menggambarkan hubungan atau tautan antar simpul. Identifikasi simpul penting bertujuan menemukan node yang memiliki peran dominan atau pengaruh besar dalam jaringan. Konsep ini erat kaitannya dengan centrality, yaitu ukuran yang digunakan untuk menilai sejauh mana sebuah node menempati posisi strategis dalam jaringan. Simpul penting berguna untuk mencari halaman penting (seperti situs berita utama), mengidentifikasi pengguna influencer di media social dan mendeteksi sumber informasi terpercaya. Kegunaan analisis struktur web diantaranya menentukan otoritas halaman (seperti PageRank), mendeteksi komunitas online, menganalisis jaringan sosial digital.
+
+
+
+#### Implementasi Web Structure Mining
+- Google Search: Menggunakan PageRank untuk menentukan urutan hasil pencarian.
+- Twitter/Instagram: Menampilkan akun influencer pada rekomendasi.
+- Analisis Jaringan Sosial: Mencari pemimpin komunitas atau penyebar berita palsu.
+
+
+
+
+## Proses Web Mining
+- **Data Gathering and Exploration**
+
+  Tahap pengumpulan data dari web melalui web crawling, penggunaan web APIs, atau ekstraksi langsung dari dokumen web. Setelah data terkumpul, dilakukan eksplorasi untuk memahami data, ringkasan statistic data web dan visualisasi data agar pola awal lebih mudah diamati.
+
+- **Preprocessing and Transformation**
+
+  Pembersihan dan tranformasi data agar sesuai metode analisis. Tahapannya meliputi reduksi dimensi, seleksi fitur, diskritisasi, binarisasi, serta transformasi teks ke dalam bentuk vektor (embeddings).
+
+- **Actual Data Mining**
+
+  Tahap membangun model dan menemukan pola dari data yang telah di proses sebelumnya. Berbagai metode data mining dapat diterapkan, seperti klasifikasi, clustering, asosiasi, maupun prediksi. Prosesnya iteratif, karena memerlukan eksperimen hyperparameter, perbaikan praproses, dan peningkatan jumlah serta kualitas data latih.
+
+- **Evaluation and Interpretation**
+
+  Tahap evaluasi hasil model atau pola yang ditemukan untuk memastikan model dan data layak, valid, bermanfaat, dan sesuai dengan tujuan analisis. Evaluasi dapat dilakukan dengan pengukuran akurasi, cross validation, atau analisis kualitas pola.
+
+
+
+
+
+# Text Mining
+Text mining adalah penemuan informasi baru dan berkualitas oleh komputer dengan secara otomatis mengekstrak informasi dari sumber-sumber yang berbeda. Kunci dari proses ini adalah menggabungkan informasi yang berhasil diekstraksi dari berbagai sumber.
+
+## Tugas Text Mining
+- Ekstraksi Informasi (Information Extraction) : Idetifikasi frasa kunci dan hubungan dalam teks dengan melihat urutan tertentu melalui pencocokan pola.
+- Pelacakan Topik (Toping Tracking) : Penentuan dokumen lain yang menarik pengguna berdasarkan profil dan dokumen yang dilihat pengguna tersebut.
+- Perangkuman (Summarization) : Pembuatan rangkuman dokumen.
+- Kategorisasi (Categorization) : Penentuan tema suatu teks dan pengelompokan teks ke dalam kategori yang telah ditentukan berdasarkan tema tersebut.
+- Penggugusan (Clustering) : Pengelompokan dokumen yang serupa tanpa penentuan kategori sebelumnya.
+- Penjawaban Pertanyaan (Question Answering) : Pencocokan pola berdasarkan pengetahuan untuk memberikan jawaban terbaik terhadap suatu pertanyaan (7).
