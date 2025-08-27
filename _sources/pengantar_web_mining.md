@@ -206,4 +206,17 @@ Text mining adalah penemuan informasi baru dan berkualitas oleh komputer dengan 
 - Perangkuman (Summarization) : Pembuatan rangkuman dokumen.
 - Kategorisasi (Categorization) : Penentuan tema suatu teks dan pengelompokan teks ke dalam kategori yang telah ditentukan berdasarkan tema tersebut.
 - Penggugusan (Clustering) : Pengelompokan dokumen yang serupa tanpa penentuan kategori sebelumnya.
-- Penjawaban Pertanyaan (Question Answering) : Pencocokan pola berdasarkan pengetahuan untuk memberikan jawaban terbaik terhadap suatu pertanyaan (7).
+- Penjawaban Pertanyaan (Question Answering) : Pencocokan pola berdasarkan pengetahuan untuk memberikan jawaban terbaik terhadap suatu pertanyaan.
+
+
+
+
+
+# Referensi
+- [Apa itu Web Mining](https://sis.binus.ac.id/2021/08/04/apa-itu-web-mining/)
+- [Situs web](https://id.wikipedia.org/wiki/Situs_web)
+- [Perbedaan Teknik pada Web Mining vs Data Mining](https://sis.binus.ac.id/2021/09/03/perbedaan-teknik-pada-web-mining-vs-data-mining/)
+- [Text Mining dengan Topic Modelling LDA dari Pertanyaan Gelar Wicara Literasi Perpustakaan Nasional RI](https://ejournal.perpusnas.go.id/mp/article/download/5237/1474/12616)
+- [Apa itu Teknik Web Usage Mining pada Web Mining](https://sis.binus.ac.id/2021/08/11/apa-itu-teknik-web-usage-mining-pada-web-mining/)
+- [Clickstream Analysis on Web Usage Mining](https://acadpubl.eu/hub/2018-119-16/1/86.pdf)
+- [Apa itu Text Mining?](https://sis.binus.ac.id/2021/04/23/apa-itu-text-mining/)
