@@ -388,6 +388,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#web-usage-mining">2. Web Usage Mining</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#proses-web-usage-mining">Proses Web Usage Mining</a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing">1. Preprocessing</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#pattern-discovery">2. Pattern Discovery</a></li>
 </ul>
 </li>
 </ul>
@@ -473,16 +474,16 @@ jupyter-book myst init path/to/markdownfile.md
 <section id="aplikasi-text-mining-dalam-web-content-mining">
 <h4>Aplikasi Text Mining dalam Web Content Mining<a class="headerlink" href="#aplikasi-text-mining-dalam-web-content-mining" title="Link to this heading">#</a></h4>
 <p><strong>a. Ekstraksi Informasi</strong>
-Ekstraksi Informasi bertujuan mengambil informasi terstruktur dari konten web yang umumnya tidak terstruktur atau semi-terstruktur, seperti artikel, ulasan, komentar, tabel HTML, atau data yang tertanam dalam dokumen web. Ekstraksi informasi fokus pada identifikasi entitas, hubungan antar entitas, serta atribut penting dari teks. Proses ini memungkinkan data mentah yang tersebar di web diubah jadi informasi yang lebih mudah dianalisis dan digunakan kembali.
-<strong>b. Topic Modelling</strong>
-Topic Modelling adalah pendekatan text mining untuk mengidentifikasi topik-topik yang muncul dalam suatu data teks berdasarkan kemiripannya tanpa harus memiliki label/kategori sebelumnya. Pendekatan ini menggunakan model statistik untuk menemukan topik dalam dataset teks, kata mana yang berkontribusi ke suatu topik, dan topik mana yang berkontribusi pada suatu dokumen. Tujuan topic modelling adalah agar tanpa membaca semua isi teks, user tetap bisa memahami isinya.
-<strong>c. Peringkasan Dokumen</strong>
-Peringkasan dokumen bertujuan menghasilkan ringkasan otomatis dari dokumen sehingga hanya menyajikan informasi utama tanpa menghilangkan makna penting yang terkandung di dalam teks asli. peringkasan dokumen dapat mengatasi kelebihan informasi di web, karena dapat menyajikan konten yang ringkas, relevan, dan mudah dipahami pengguna sehingga membantu pengguna memahami isi utama dari artikel, berita, ulasan, atau laporan tanpa harus membaca seluruh isi dokumen.
-<strong>d. Klasifikasi Dokumen (Sentiment Analisis, Opinion Mining)</strong>
-Dalam konteks web content mining, salah satu bentuk penerapan klasifikasi adalah sentiment analysis atau opinion mining, yaitu proses menganalisis teks untuk menentukan sikap, opini, atau emosi penulis terhadap suatu objek. Tujuan kalsifikasi dokumen agar dokumen atau gambar yang belum pernah dilihat dikategorikan dalam kelas dengan akurat. Sentiment analysis mengklasifikasikan polaritas teks (positif, negative, netral) yang diberikan pada tingkat dokumen, kalimat, atau fitur/atribut seperti ulasan. Opinion mining tidak hanya mengukur polaritas, tetapi juga menggali aspek yang menjadi perhatian, seperti kualitas layanan. Klasifikasi dokumen betujuan membantu penyedia layanan memahami persepsi pengguna dan  mendukung pengambilan keputusan berbasis data.
-<strong>e. Pengelompokan Dokumen (Sistem Rekomendasi)</strong>
-Pengelompokan dokumen bertujuan mengelompokkan sekumpulan dokumen dalam beberapa kelompok berdasarkan tingkat kesamaan isi, sehingga dokumen dalam satu kelompok lebih mirip satu sama lain dibandingkan dengan dokumen dari kelompok lain. Dalam konteks sistem rekomendasi, pengelompokan dokumen berguna untuk menyajikan informasi relevan sesuai minat atau kebutuhan pengguna. Contohnya pada mesin pencari, hasil pencarian dikelompokkan ke dalam topik tertentu agar mudah dipahami pengguna.
-<strong>f. Ektraksi Kata Kunci</strong>
+Ekstraksi Informasi bertujuan mengambil informasi terstruktur dari konten web yang umumnya tidak terstruktur atau semi-terstruktur, seperti artikel, ulasan, komentar, tabel HTML, atau data yang tertanam dalam dokumen web. Ekstraksi informasi fokus pada identifikasi entitas, hubungan antar entitas, serta atribut penting dari teks. Proses ini memungkinkan data mentah yang tersebar di web diubah jadi informasi yang lebih mudah dianalisis dan digunakan kembali.</p>
+<p><strong>b. Topic Modelling</strong>
+Topic Modelling adalah pendekatan text mining untuk mengidentifikasi topik-topik yang muncul dalam suatu data teks berdasarkan kemiripannya tanpa harus memiliki label/kategori sebelumnya. Pendekatan ini menggunakan model statistik untuk menemukan topik dalam dataset teks, kata mana yang berkontribusi ke suatu topik, dan topik mana yang berkontribusi pada suatu dokumen. Tujuan topic modelling adalah agar tanpa membaca semua isi teks, user tetap bisa memahami isinya.</p>
+<p><strong>c. Peringkasan Dokumen</strong>
+Peringkasan dokumen bertujuan menghasilkan ringkasan otomatis dari dokumen sehingga hanya menyajikan informasi utama tanpa menghilangkan makna penting yang terkandung di dalam teks asli. peringkasan dokumen dapat mengatasi kelebihan informasi di web, karena dapat menyajikan konten yang ringkas, relevan, dan mudah dipahami pengguna sehingga membantu pengguna memahami isi utama dari artikel, berita, ulasan, atau laporan tanpa harus membaca seluruh isi dokumen.</p>
+<p><strong>d. Klasifikasi Dokumen (Sentiment Analisis, Opinion Mining)</strong>
+Dalam konteks web content mining, salah satu bentuk penerapan klasifikasi adalah sentiment analysis atau opinion mining, yaitu proses menganalisis teks untuk menentukan sikap, opini, atau emosi penulis terhadap suatu objek. Tujuan kalsifikasi dokumen agar dokumen atau gambar yang belum pernah dilihat dikategorikan dalam kelas dengan akurat. Sentiment analysis mengklasifikasikan polaritas teks (positif, negative, netral) yang diberikan pada tingkat dokumen, kalimat, atau fitur/atribut seperti ulasan. Opinion mining tidak hanya mengukur polaritas, tetapi juga menggali aspek yang menjadi perhatian, seperti kualitas layanan. Klasifikasi dokumen betujuan membantu penyedia layanan memahami persepsi pengguna dan  mendukung pengambilan keputusan berbasis data.</p>
+<p><strong>e. Pengelompokan Dokumen (Sistem Rekomendasi)</strong>
+Pengelompokan dokumen bertujuan mengelompokkan sekumpulan dokumen dalam beberapa kelompok berdasarkan tingkat kesamaan isi, sehingga dokumen dalam satu kelompok lebih mirip satu sama lain dibandingkan dengan dokumen dari kelompok lain. Dalam konteks sistem rekomendasi, pengelompokan dokumen berguna untuk menyajikan informasi relevan sesuai minat atau kebutuhan pengguna. Contohnya pada mesin pencari, hasil pencarian dikelompokkan ke dalam topik tertentu agar mudah dipahami pengguna.</p>
+<p><strong>f. Ektraksi Kata Kunci</strong>
 Ekstraksi kata kunci bertujuan mengidentifikasi kata atau frasa yang paling mewakili isi dokumen sehingga dapat digunakan sebagai ringkasan singkat atau penanda topik utama dari suatu teks. Web content mining mengekstraksi kata kunci yang terkandung pada dokumen. Dengan adanya kata kunci yang relevan, sistem dapat lebih mudah melakukan pengindeksan, pencarian, maupun rekomendasi konten yang sesuai kebutuhan pengguna.</p>
 </section>
 </section>
@@ -494,7 +495,16 @@ Ekstraksi kata kunci bertujuan mengidentifikasi kata atau frasa yang paling mewa
 <section id="preprocessing">
 <h5>1. Preprocessing<a class="headerlink" href="#preprocessing" title="Link to this heading">#</a></h5>
 <p>Preprocessing bertujuan untuk melakukan standarisasi data dan menghilangkan bagian–bagian data yang tidak diperlukan dalam proses mining.
-<strong>a. Data Cleaning :</strong> membersihkan file log tidak relevan dari data dengan proses mining.</p>
+<strong>a. Data Cleaning :</strong> membersihkan file log tidak relevan dari data dengan proses mining.
+<strong>b. User Identification :</strong> proses pengidentifikasian user.
+<strong>c. Session Identification  :</strong> Halaman yang diakses dibagi ke dalam sesi tertentu agar tercipta satu sesi untuk setiap user yang mengakses.
+<strong>d. Path Completion :</strong> melengkapi path yang mungkin belum lengkap karena tersimpan pada file log.
+<strong>e. Transaction Identification :</strong> mengindentifikasi sejumlah sesi tertentu agar dapat menunjukkan proses transaksi yang dilakukan oleh user.</p>
+</section>
+<section id="pattern-discovery">
+<h5>2. Pattern Discovery<a class="headerlink" href="#pattern-discovery" title="Link to this heading">#</a></h5>
+<p>Pattern Discovery adalah pencarian pola akses yang dilakukan oleh user aplikasi.
+<strong>a.	Statistical Analysis :</strong> teknik untuk mendapatkan informasi atau pengetahuan dari pola akses pengguna. Contohnya pola akses pengguna dilihat dari waktu akses untuk setiap harinya.</p>
 </section>
 </section>
 </section>
@@ -568,6 +578,7 @@ Ekstraksi kata kunci bertujuan mengidentifikasi kata atau frasa yang paling mewa
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#web-usage-mining">2. Web Usage Mining</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#proses-web-usage-mining">Proses Web Usage Mining</a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing">1. Preprocessing</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#pattern-discovery">2. Pattern Discovery</a></li>
 </ul>
 </li>
 </ul>
