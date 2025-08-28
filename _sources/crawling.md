@@ -169,3 +169,6 @@ print(f"Total data: {len(df)}")
 print("\n 10 data pertama:")
 print(df.head(10))
 ```
+
+## Link Google Colab Crawling :
+- [Crawling_SpringNature_PPW](https://colab.research.google.com/drive/1tNi7P0o_g7S_EX7nTZp8Bkt_FsVZyLFi?usp=sharing)
