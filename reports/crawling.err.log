@@ -35,7 +35,7 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['for keyword in keywords:', '    print(f"\\n🔎 Sedang crawling keyword: {keyword}")', '', '    for start in range(1, hasil_max, per_page):  ', '        params = {']
+['for keyword in keywords:', '    print(f"\\n🔎 Sedang crawling keyword: {keyword}")', '', '    for start in range(1, hasil_max, per_page):', '        params = {']
 ...
 ['                    # "keywords": keywords_article,', '                    # "url": url_article', '                })', '        else:', '            print("Error:", response.status_code, response.text)']
 -------------------

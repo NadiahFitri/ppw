@@ -183,7 +183,11 @@
 
 
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Crawling</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Crawling</strong></a></li>
+
+
+
+
 </ul>
 
     </div>
@@ -379,13 +383,21 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-dan-import-library">1 Install dan Import Library</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menyimpan-api-key-dan-alamat-api-spring">2. Menyimpan API key dan alamat API spring</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input-kata-kunci-dan-tampung-hasil-pencarian">3. Input kata kunci dan tampung hasil pencarian</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mengambil-informasi-dari-tiap-artikel">4. Mengambil informasi dari tiap artikel</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menyimpan-dan-menampilkan-data">5. Menyimpan dan menampilkan data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#link-google-colab-crawling">Link Google Colab Crawling :</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Crawling</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tugas-1-crawling-springernature">Tugas 1 (Crawling SpringerNature)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-dan-import-library">1. Install dan Import Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menyimpan-api-key-dan-alamat-api">2. Menyimpan API Key dan Alamat API</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input-kata-kunci-dan-tampung-hasil-pencarian">3. Input Kata Kunci dan Tampung Hasil Pencarian</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mengambil-informasi-dari-tiap-artikel">4. Mengambil Informasi Dari Tiap Artikel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menyimpan-dan-menampilkan-data">5. Menyimpan dan Menampilkan Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-crawling-tugas-1-springernature">6. Code Crawling Tugas 1 (SpringerNature)</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tugas-2-a-crawling-pta-trunojoyo">Tugas 2 (A. Crawling PTA Trunojoyo)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tugas-2-b-crawling-berita-online">Tugas 2 (B. Crawling Berita Online)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tugas-2-c-crawling-link-dalam-page">Tugas 2 (C. Crawling Link Dalam Page)</a></li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -436,9 +448,12 @@ If you have a markdown file and you'd like to quickly add YAML metadata to it, s
 jupyter-book myst init path/to/markdownfile.md
 ``` -->
 <section class="tex2jax_ignore mathjax_ignore" id="crawling">
-<h1>Crawling<a class="headerlink" href="#crawling" title="Link to this heading">#</a></h1>
+<h1><strong>Crawling</strong><a class="headerlink" href="#crawling" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="tugas-1-crawling-springernature">
+<h1>Tugas 1 (Crawling SpringerNature)<a class="headerlink" href="#tugas-1-crawling-springernature" title="Link to this heading">#</a></h1>
 <section id="install-dan-import-library">
-<h2>1 Install dan Import Library<a class="headerlink" href="#install-dan-import-library" title="Link to this heading">#</a></h2>
+<h2>1. Install dan Import Library<a class="headerlink" href="#install-dan-import-library" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>sprynger
@@ -470,7 +485,7 @@ Requirement already satisfied: certifi&gt;=2017.4.17 in c:\users\administrator\a
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Administrator\AppData\Local\Temp\ipykernel_7316\222825045.py:2: DeprecationWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Administrator\AppData\Local\Temp\ipykernel_944\222825045.py:2: DeprecationWarning: 
 Pyarrow will become a required dependency of pandas in the next major release of pandas (pandas 3.0),
 (to allow more performant data types, such as the Arrow string type, and better interoperability with other libraries)
 but was not found to be installed on your system.
@@ -483,8 +498,8 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 </div>
 </div>
 </section>
-<section id="menyimpan-api-key-dan-alamat-api-spring">
-<h2>2. Menyimpan API key dan alamat API spring<a class="headerlink" href="#menyimpan-api-key-dan-alamat-api-spring" title="Link to this heading">#</a></h2>
+<section id="menyimpan-api-key-dan-alamat-api">
+<h2>2. Menyimpan API Key dan Alamat API<a class="headerlink" href="#menyimpan-api-key-dan-alamat-api" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">api_key</span> <span class="o">=</span> <span class="s2">&quot;0da1ccc0af5096386b64c11f74abe242&quot;</span>
@@ -496,7 +511,7 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 </div>
 </section>
 <section id="input-kata-kunci-dan-tampung-hasil-pencarian">
-<h2>3. Input kata kunci dan tampung hasil pencarian<a class="headerlink" href="#input-kata-kunci-dan-tampung-hasil-pencarian" title="Link to this heading">#</a></h2>
+<h2>3. Input Kata Kunci dan Tampung Hasil Pencarian<a class="headerlink" href="#input-kata-kunci-dan-tampung-hasil-pencarian" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Kata kunci</span>
@@ -514,11 +529,11 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 </div>
 </section>
 <section id="mengambil-informasi-dari-tiap-artikel">
-<h2>4. Mengambil informasi dari tiap artikel<a class="headerlink" href="#mengambil-informasi-dari-tiap-artikel" title="Link to this heading">#</a></h2>
+<h2>4. Mengambil Informasi Dari Tiap Artikel<a class="headerlink" href="#mengambil-informasi-dari-tiap-artikel" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Jumlah maksimal data per keyword</span>
-<span class="n">hasil_max</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">hasil_max</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">per_page</span> <span class="o">=</span> <span class="mi">10</span>
 </pre></div>
 </div>
@@ -529,11 +544,11 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">keyword</span> <span class="ow">in</span> <span class="n">keywords</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">🔎 Sedang crawling keyword: </span><span class="si">{</span><span class="n">keyword</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-    <span class="k">for</span> <span class="n">start</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">hasil_max</span><span class="p">,</span> <span class="n">per_page</span><span class="p">):</span>  
+    <span class="k">for</span> <span class="n">start</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">hasil_max</span><span class="p">,</span> <span class="n">per_page</span><span class="p">):</span>
         <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">keyword</span><span class="p">,</span>
             <span class="s2">&quot;api_key&quot;</span><span class="p">:</span> <span class="n">api_key</span><span class="p">,</span>
-            <span class="s2">&quot;p&quot;</span><span class="p">:</span> <span class="n">per_page</span><span class="p">,</span>   
+            <span class="s2">&quot;p&quot;</span><span class="p">:</span> <span class="n">per_page</span><span class="p">,</span>
             <span class="s2">&quot;s&quot;</span><span class="p">:</span> <span class="n">start</span>
         <span class="p">}</span>
 
@@ -541,10 +556,10 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 
         <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
             <span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-            
+
             <span class="c1"># ambil informasi artikel</span>
             <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;records&#39;</span><span class="p">,</span> <span class="p">[]):</span>
-              
+
                 <span class="n">doi</span> <span class="o">=</span> <span class="n">record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;doi&quot;</span><span class="p">,</span> <span class="s2">&quot;N/A&quot;</span><span class="p">)</span>
                 <span class="n">title</span> <span class="o">=</span> <span class="n">record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;title&quot;</span><span class="p">,</span> <span class="s2">&quot;No title&quot;</span><span class="p">)</span>
                 <span class="n">abstract</span> <span class="o">=</span> <span class="n">record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;abstract&quot;</span><span class="p">,</span> <span class="s2">&quot;No abstract&quot;</span><span class="p">)</span>
@@ -552,7 +567,7 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
                 <span class="c1"># publicationDate = record.get(&quot;publicationDate&quot;, &quot;N/A&quot;)</span>
                 <span class="c1"># publisher = record.get(&quot;publisher&quot;, &quot;N/A&quot;)</span>
                 <span class="c1"># keywords_article = &quot;; &quot;.join(record.get(&quot;keyword&quot;, [])) if record.get(&quot;keyword&quot;) else &quot;N/A&quot;</span>
-                
+
                 <span class="c1"># keyword artikel list</span>
                 <span class="c1"># ubah jadi string</span>
                 <span class="n">keywords_article</span> <span class="o">=</span> <span class="s2">&quot;; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;keyword&quot;</span><span class="p">,</span> <span class="p">[]))</span> <span class="k">if</span> <span class="n">record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;keyword&quot;</span><span class="p">)</span> <span class="k">else</span> <span class="s2">&quot;N/A&quot;</span>
@@ -564,7 +579,7 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
                 <span class="k">else</span><span class="p">:</span>
                     <span class="n">url_article</span> <span class="o">=</span> <span class="s2">&quot;N/A&quot;</span>
 
-                <span class="c1"># 🔹 Tambahkan print untuk cek hasil</span>
+                <span class="c1"># Tambahkan print untuk cek hasil</span>
                 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;DOI: </span><span class="si">{</span><span class="n">doi</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
                 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Title: </span><span class="si">{</span><span class="n">title</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
                 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Abstract: </span><span class="si">{</span><span class="n">abstract</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -614,24 +629,36 @@ DOI: 10.1007/978-3-031-93802-3_10
 Title: Integrating Graph Convolutional Networks for Web Traffic Prediction
 Abstract: Web traffic forecasting plays a crucial role in optimizing network resources, enhancing user experience, and ensuring efficient server load management. Traditional approaches, such as ARIMA, SARIMA, and machine learning methods like support vector machines and decision trees, focus primarily on temporal data. These models, however, often fail to capture the intricate relationships within web traffic data, such as user interactions or page-to-page connections, resulting in sub-optimal predictive performance. Graph Convolutional Networks (GCNs) address these limitations by modeling web traffic as a graph, where web pages or users are represented as nodes, and their interactions form edges. GCNs aggregate node information through graph structures, enabling the model to learn both spatial and temporal dependencies inherent in web traffic. This ability to exploit complex data relationships makes GCNs well-suited for more accurate and dynamic web traffic predictions. In this work, we propose a GCN-based framework for web traffic forecasting, incorporating multiple optimizers like Adam, RMSProp, and SGD to identify the model’s fair performance. By optimizing training through these methods, the GCN model efficiently captures both short-term fluctuations and long-term trends in web traffic patterns. Our study highlights the potential of GCNs in elevating the accuracy and reliability of web traffic forecasting. The integration of advanced optimizers further enhances convergence and prediction efficiency, offering a more scalable solution to meet the demands of rapidly growing and complex web systems.
 
+DOI: 10.1007/978-3-032-00793-3_13
+Title: Predictive Analytics of Injection Attacks in Web Applications
+Abstract: Cybersecurity threats such as SQL injection and Cross-site Scripting (XSS) are examples of injection attacks that pose a substantial risk to both individuals and organizations. Through the use of software application vulnerabilities, these assaults give malevolent actors the ability to enter systems without authorization, steal confidential information, or jeopardize system integrity. The ever-changing nature of injection threats makes traditional rule-based security methods ineffective. The suggested model concentrates on using machine learning approach to successfully detect these injection assaults in order to address this difficulty. The main goal of this research is to create a reliable solution for identifying injection attacks in databases and online applications. The system will continuously analyze application input by using supervised machine learning method (Multinominal Naïve Bayes). It is capable of identifying patterns linked to injection attacks, such as peculiar input patterns and unexpected actions. The website’s activity is monitored and a track of these instances is kept in a different database to help in detecting and preventing similar assaults. The necessary analysis is derived from this occurrence history. The use of this study can help in predicting and protecting the web applications from future possible attacks.
+
 DOI: 10.1007/978-3-031-93257-1_6
 Title: Adaptive Web API Recommendation via Matching Service Clusters and Mashup Requirement
 Abstract: With the rapid proliferation of Web services and Web APIs, recommendation systems can effectively address the issue of information overload and alleviate the burden of meaningless filtering. Existing approaches can help filtering appropriate Web services for mashup creation, however, they often fall short of developers’ different and personalized needs by recommending only a fixed number of APIs and lack precision in aligning mashup requirements across all categories. To solve the above issue, this paper introduces a novel Web service recommendation framework called AWAR for mashup creation, which focuses on the matching strategy between mashup requirements and Web APIs, and enhances recommendation effectiveness by integrating natural language processing, optimization algorithms, and deep learning. Extensive experiments conducted on large-scale real datasets demonstrate that the proposed approach receives superior recommendation results on multiple evaluation metrics compared to advanced competing baselines.
 
+DOI: 10.1007/978-3-032-02936-2_19
+Title: Multimodal Zero-Shot Activity Recognition for Process Mining of Robotic Systems
+Abstract: Understanding and analyzing the behavior of robotic systems is essential to ensure their reliability, efficiency, and continuous improvement, especially as robots are increasingly deployed in complex, dynamic environments. Process mining offers a powerful approach to uncover and analyze the execution of robotic operations. However, applying process mining to robotic systems requires bridging the gap between fine-grained multimodal data and high-level activity representations. Recent advances in foundation models provide a promising solution to this challenge, as the knowledge acquired during their extensive pretraining enables them to interpret multimodal data without the need for task-specific training. In this work, we propose a novel multimodal process mining pipeline that leverages the zero-shot capabilities of foundation models to perform activity recognition from visual and auditory inputs. By transforming fine-grained multimodal data into event logs, the pipeline enables the application of process mining techniques to robotic systems. We applied our approach to the Baxter UR5 95 Objects dataset, which offers synchronized video and audio recordings of a Baxter robot manipulating objects. The fusion of activity recognition results from these complementary modalities yields an event log that more accurately represents the robot’s operations, mitigating imprecision associated with using a single modality. Our results demonstrate that foundation models effectively enable the application of process mining to robotic systems, facilitating monitoring and analysis of their behavior.
+
 DOI: 10.1007/978-3-032-02215-8_3
 Title: Leveraging Machine Learning Techniques for Customer Data Deduplication - Hard-Won Lessons from a Real-World Project in the Financial Industry
 Abstract: This paper is associated with a tutorial presented at DEXA 2025 Conferences and Workshops. The tutorial shares the practical experience gained from a 3-year R&amp;D project for a big financial institution in Poland. The project aimed at developing deduplication pipelines for customer records. It involved the development of two distinct end-to-end deduplication pipelines that are based on (1) statistical/probabilistic modeling and on (2) machine learning. This tutorial focuses on lessons learned from developing the machine learning pipeline , within the context of a real-world industrial setting. Moreover, this tutorial provides an overview of approaches to data deduplication, including the traditional state-of-the-art baseline deduplication pipeline, solutions based on machine learning and neural networks that apply pre-trained and large language models.
-
-DOI: 10.1007/978-3-031-95296-8_21
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DOI: 10.1007/978-3-031-95296-8_21
 Title: Intelligent Control System for Ore Transportation and Grinding Process in Gold Mining Fields
 Abstract: This paper is devoted to optimizing the processes of work using intellectual control systems for the transportation and grinding of ore in gold mining fields. Ore is being optimized through the introduction of modern technologies and information systems in the transportation and grinding processes in order to increase efficiency, reduce energy consumption and reduce production costs. The paper examines the applications of IoT technologies, artificial intelligence, and large-scale data analysis in ore transport and grinding processes. With these systems, there is talk of monitoring processes in real time and improving the efficiency of equipment operation. New methods for managing ore transport and grinding processes through mathematical models, optimization algorithms and artificial neural networks are also presented. The results of scientific research in this paper can contribute to innovations and technological developments in the field of gold mining. Improving efficiency through automation of gold mining processes and intellectual management systems not only contributes to economic benefits, but also to the protection of the environment.
 
 DOI: 10.1007/978-3-032-02088-8_29
 Title: Benchmarking Embedding Techniques for Modeling User Navigation Behavior on Task-Oriented Software
 Abstract: Understanding user navigation patterns from clickstream data is crucial for improving business software, yet remains challenging due to the complexity and variability of real-world environments. Unlike controlled settings, real-world clickstreams are noisy, fragmented, and often incomplete, due to session timeouts, network issues, caching, or third-party interactions—making it difficult to reconstruct coherent user journeys. Additionally, the absence of labeled data hinders the use of supervised learning, pushing researchers toward unsupervised or heuristic-based approaches that struggle to fully capture user behavior. In this paper, we present a benchmark of embedding techniques for modeling user navigation behavior on task-oriented software. We identify distinct user behaviors across three real-world case studies. Results show that Pattern2Vec outperforms Word2Vec in capturing meaningful task-based navigation patterns, confirming its suitability for clickstream analysis.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DOI: 10.1007/978-3-031-97763-3_2
+
+DOI: 10.1007/978-3-031-98290-3_15
+Title: Characterization of the Graduation Profile of the Software and Telematics Programs from UTEQ: Analyzing Educational Outcomes with Industry Demands
+Abstract: The transition of recent university graduates into the labor market is increasingly complex due to globalization and rapid technological advancements, requiring continuous learning and adaptation. Our study analyzes the alignment between the graduate profiles of Software and Telematics students from the State Technical University of Quevedo (UTEQ) and the professional profiles demanded by companies, particularly through the Hiring Room portal. By utilizing data mining techniques and the Latent Dirichlet Allocation (LDA) model, key competencies required by employers were identified and compared with the educational outcomes of UTEQ’s programs. Our findings highlight significant gaps in areas such as Soft Skills, Cybersecurity Certifications and Multidisciplinary Knowledge, particularly in the field of Data Analytics. We suggest the need for curriculum updates to better align with market demands and equip graduates with the necessary skills for employability. We will apply this methodology to other job portals or focus on analyzing profiles demanded by companies for remote jobs.
+
+DOI: 10.1007/978-3-031-97763-3_2
 Title: Virtual Reality in Geoscience: An Overview
 Abstract: Technological advancements have transformed geoscience, with virtual reality (VR) becoming a valuable tool for education and research. VR enhances the exploration of geological phenomena but faces challenges in achieving realistic simulations, real-time interactivity, and accessibility. Understanding its benefits and limitations is essential for maximizing VR’s potential in geosciences. This study explores the applications of VR in geosciences, highlighting its impact on education, research, and industry. The literature review covers the use of VR in education, space exploration, the oil and mining industry, volcanology, hydrogeology, and geological heritage. The methodology included an analysis of scientific productions in Google Scholar and Scopus databases, selecting 53 relevant articles published since 2020. The results indicate that VR is widely used to simulate remote or hazardous environments, complement field activities, and improve teaching through immersive experiences such as virtual excursions. Photogrammetry, LiDAR, and 3D modeling are essential in many fields but lack haptic feedback and realistic simulations. There are notable gaps in geological analysis and real-time interaction. This work emphasizes the potential of VR as a complementary tool in geosciences while underscoring the need for more interactivity, predictive capabilities, and accessibility in less developed regions. Although VR introduces innovations and addresses logistical challenges, future research should concentrate on creating more interactive and predictive experiences to maximize its impact in the field.
 
@@ -647,6 +674,10 @@ DOI: 10.1007/978-3-032-02215-8_7
 Title: An Enhanced FP-Growth Algorithm with Hybrid Adaptive Support Threshold for Association Rule Mining
 Abstract: Finding frequent itemsets remains challenging due to manual threshold specification requirements in existing algorithms. This paper presents an Enhanced FP-Growth algorithm incorporating a hybrid adaptive support threshold that combines statistical variance analysis, frequency distribution patterns, and transaction density metrics. The algorithm automatically adjusts support levels based on dataset characteristics, eliminating manual threshold tuning. Experimental evaluation on five benchmark datasets against Aprior, FP-growth, and FP-Max shows our Enhanced FP-Growth consistently achieves superior execution time and improved memory efficiency. The hybrid threshold mechanism dynamically calibrates according to dataset characteristics, offering substantial efficiency gains across diverse data types.
 
+DOI: 10.1007/978-3-032-02867-9_10
+Title: Unlocking Non-Block-Structured Decisions: Inductive Mining with Choice Graphs
+Abstract: Process discovery aims to automatically derive process models from event logs, enabling organizations to analyze and improve their operational processes. Inductive mining algorithms, while prioritizing soundness and efficiency through hierarchical modeling languages, often impose a strict block-structured representation. This limits their ability to accurately capture the complexities of real-world processes. While recent advancements like the Partially Ordered Workflow Language (POWL) have addressed the block-structure limitation for concurrency, a significant gap remains in effectively modeling non-block-structured decision points. In this paper, we bridge this gap by proposing an extension of POWL to handle non-block-structured decisions through the introduction of choice graphs. Choice graphs offer a structured yet flexible approach to model complex decision logic within the hierarchical framework of POWL. We present an inductive mining discovery algorithm that uses our extension and preserves the quality guarantees of the inductive mining framework. Our experimental evaluation demonstrates that the discovered models, enriched with choice graphs, more precisely represent the complex decision-making behavior found in real-world processes, without compromising the high scalability inherent in inductive mining techniques.
+
 DOI: 10.1007/978-981-96-2771-4_1
 Title: Research on Vulnerability Mining Technology of Electric Power Industrial Control Equipment Based on Genetic Algorithm
 Abstract: The traditional vulnerability mining methods for information systems require prior knowledge of protocol specifications, which often necessitates developers to invest significant time in learning and comprehending the protocol format for effective development of vulnerability mining test cases. However, in the power industry, industrial control equipment utilizes a multitude of private protocols with undisclosed specifications (unknown protocols). Consequently, the conventional vulnerability mining technology based on prior knowledge cannot be directly applied to these unknown industrial control protocols. To address this issue, this paper proposes a method and system of fuzzy testing for industrial control equipment based on genetic algorithms. The objective is to resolve challenges such as prolonged development periods, inability to test unknown protocols, and low efficiency in conducting vulnerability mining tests on unknown protocol vulnerabilities within industrial control equipment.
@@ -654,38 +685,22 @@ Abstract: The traditional vulnerability mining methods for information systems r
 DOI: 10.1007/978-3-032-00350-8_12
 Title: Ethical Implications of Using AI to Monitor and Regulate Dark Web Activities
 Abstract: The dark web continues to attract more illegal activities, and law enforcement and societal security face significant challenges. AI, though strong for monitoring and regulation, does raise critical ethical concerns concerning the use of these technologies for that purpose. This study considers the ethical aspects of AI systems for policing the dark web, including the trade-off between security and privacy, risks of bias and discrimination, and accountability in automated decision-making. Through a mixed-method approach involving both legal analysis, expert interviews, and case studies of existing AI-driven dark web monitoring systems, we identify central ethical challenges and potential mitigation strategies. In doing so, our results will reflect how AI may strengthen efficiency and effectiveness in terms of dark web policing, which equally result in the violation of user privacy, the perpetuation of systemic biases, and a lack of transparency in its operations. Ultimately, we conclude that proper use of AI in monitoring dark webs requires a robust governance framework, one that can ensure accountability, legitimacy, and respect for civil liberties. Such a framework must build on robust, clear guidelines for collecting and utilizing information, regular audits of bias, effectiveness, and mechanisms for human oversight and intervention. Given such measures, chances for using AI in the fight against crimes committed on the dark web are securely positioned within the right and constitutional means to protect the rights of individuals in this age of digitization.
-
-DOI: 10.1007/978-3-031-93802-3_9
-Title: Citation Knowledge Graphs for Academic Insights: Modelling, Processing, and Analysis
-Abstract: The constant flow of information allows the data network to be accurately depicted as a graph, illustrating the interconnections across various groups, including items, customers, transactions, categories, reviews, and suppliers. Graph databases are proficient at revealing relationships and patterns in domains such as social networks, recommendation systems, the semantic web, and fraud detection. They facilitate intricate inquiries, including the determination of shortest paths, the identification of pivotal hubs, and the analysis of relationships. Although graph databases exhibit significant scalability and effectively handle extensive quantities of interconnected data, they frequently lack semantic Information, formal structure, and explicit typing. Knowledge graphs (KGs) mitigate these restrictions by structuring data in a graph format and linking data points via relationships to encapsulate Information. This chapter seeks to elucidate the functionalities of KGs, encompassing activities from traditional graph configurations to semantic frameworks, scalability issues, and query methodologies.
-
-DOI: 10.1007/978-3-032-02215-8_29
-Title: Local-Aware Convolutional Modulation for Short-Term Sequential Recommendation
-Abstract: Sequential recommendation models have predominantly relied on self-attention mechanisms in recent years. However, beyond self-attention, other deep neural architectures such as convolutional neural networks (CNNs) offer promising alternatives for capturing sequential patterns. In this paper, we explore the CNN-based architecture and propose L ocal-aware C onvolutional M odulation for Short-Term Sequential Rec ommendation (LCMRec). Like other convolutional neural network-based models, LCMRec benefits from strong local modelling capabilities through its convolutional architecture. By introducing the multi-head convolutional modulation (MHCM) unit, which applies convolutions with varying kernel sizes across multiple heads locally, LCMRec dynamically captures short-term dependencies at multiple scales and keeps a linear computational complexity. In experiments, LCMRec outperforms baseline models, demonstrating the efficacy of the convolutional architecture and validating the effectiveness of our approach in balancing multi-scale dependency modelling with computational efficiency.
-
-DOI: 10.1007/978-3-032-01723-9_10
-Title: Geospatially-Informed Recommendations for Automobile Purchases: Integrating Spatial Analysis for Enhanced Decision-Making
-Abstract: This research proposes an integrated recommendation framework to support automobile purchase decisions by aligning consumer preferences with spatial and technical factors. In response to the challenges faced by car buyers, particularly those with limited automotive expertise and overwhelmed by excessive information, the model leverages sentiment analysis from social media and combines it with spatial variables, including dealership density, vehicle availability, circulation restrictions, environmental suitability, and pricing. These factors are then matched with technical specifications to generate personalized and context-aware vehicle suggestions. Using Mexico City as a case study, the empirical analysis reveals that regional differences in infrastructure, regulatory policies, economic conditions, and environmental constraints strongly shape vehicle preferences. The findings show that consumers in areas with stricter vehicle regulations and better service infrastructure tend to prefer vehicles with higher initial costs but lower long-term maintenance demands. While the system is built around the socio-economic and infrastructural peculiarities of Mexico City, it has been designed with modular and configurable components, allowing it to be adapted to international contexts with similar data availability. Nevertheless, the dependence on locally specific variables should be explicitly acknowledged when considering its broader applicability. This raises the question of scalability and transferability, inviting further research into how the framework can be generalized across diverse urban and regulatory environments.
-
-DOI: 10.1007/978-3-031-95296-8_14
-Title: Testing the Technology and Reliability of Using the Zigbee Network in Underground Mining Operations
-Abstract: In this scientific study, we explore the possibilities of using ZigBee technology in underground mining operations and examine its reliability. Our paper highlights the advantages and challenges of using ZigBee technology for signal transmission in underground environments, along with an evaluation of signal transmission range and stability based on test results. This research develops a mathematical model for transmitting employee position data via a ZigBee network. To enhance the reliability of the ZigBee network, we also consider the implementation of redundancy mechanisms (backup pathways) within the network.
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="menyimpan-dan-menampilkan-data">
-<h2>5. Menyimpan dan menampilkan data<a class="headerlink" href="#menyimpan-dan-menampilkan-data" title="Link to this heading">#</a></h2>
+<h2>5. Menyimpan dan Menampilkan Data<a class="headerlink" href="#menyimpan-dan-menampilkan-data" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simpan ke DataFrame</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
 
 <span class="c1"># Simpan ke CSV</span>
-<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;hasil_crawling_tugas2.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;PPW_HasilCrawling_Tugas1(SpringerNature).csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data berhasil disimpan ke hasil_crawling_tugas2.csv&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data berhasil disimpan ke PPW_HasilCrawling_Tugas1(SpringerNature).csv&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total data: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="c1"># Tampilkan hanya 10 data pertama</span>
@@ -696,12 +711,21 @@ Abstract: In this scientific study, we explore the possibilities of using ZigBee
 </div>
 </div>
 </section>
-<section id="link-google-colab-crawling">
-<h2>Link Google Colab Crawling :<a class="headerlink" href="#link-google-colab-crawling" title="Link to this heading">#</a></h2>
+<section id="code-crawling-tugas-1-springernature">
+<h2>6. Code Crawling Tugas 1 (SpringerNature)<a class="headerlink" href="#code-crawling-tugas-1-springernature" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://colab.research.google.com/drive/1tNi7P0o_g7S_EX7nTZp8Bkt_FsVZyLFi?usp=sharing">Crawling_SpringNature_PPW</a></p></li>
+<li><p><a class="reference external" href="https://colab.research.google.com/drive/1tNi7P0o_g7S_EX7nTZp8Bkt_FsVZyLFi?usp=sharing">PPW_Crawling_Tugas1(SpringerNature)</a></p></li>
 </ul>
 </section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="tugas-2-a-crawling-pta-trunojoyo">
+<h1>Tugas 2 (A. Crawling PTA Trunojoyo)<a class="headerlink" href="#tugas-2-a-crawling-pta-trunojoyo" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="tugas-2-b-crawling-berita-online">
+<h1>Tugas 2 (B. Crawling Berita Online)<a class="headerlink" href="#tugas-2-b-crawling-berita-online" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="tugas-2-c-crawling-link-dalam-page">
+<h1>Tugas 2 (C. Crawling Link Dalam Page)<a class="headerlink" href="#tugas-2-c-crawling-link-dalam-page" title="Link to this heading">#</a></h1>
 </section>
 
     <script type="text/x-thebe-config">
@@ -759,13 +783,21 @@ Abstract: In this scientific study, we explore the possibilities of using ZigBee
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-dan-import-library">1 Install dan Import Library</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menyimpan-api-key-dan-alamat-api-spring">2. Menyimpan API key dan alamat API spring</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input-kata-kunci-dan-tampung-hasil-pencarian">3. Input kata kunci dan tampung hasil pencarian</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mengambil-informasi-dari-tiap-artikel">4. Mengambil informasi dari tiap artikel</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menyimpan-dan-menampilkan-data">5. Menyimpan dan menampilkan data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#link-google-colab-crawling">Link Google Colab Crawling :</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Crawling</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tugas-1-crawling-springernature">Tugas 1 (Crawling SpringerNature)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-dan-import-library">1. Install dan Import Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menyimpan-api-key-dan-alamat-api">2. Menyimpan API Key dan Alamat API</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input-kata-kunci-dan-tampung-hasil-pencarian">3. Input Kata Kunci dan Tampung Hasil Pencarian</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mengambil-informasi-dari-tiap-artikel">4. Mengambil Informasi Dari Tiap Artikel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menyimpan-dan-menampilkan-data">5. Menyimpan dan Menampilkan Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-crawling-tugas-1-springernature">6. Code Crawling Tugas 1 (SpringerNature)</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tugas-2-a-crawling-pta-trunojoyo">Tugas 2 (A. Crawling PTA Trunojoyo)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tugas-2-b-crawling-berita-online">Tugas 2 (B. Crawling Berita Online)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tugas-2-c-crawling-link-dalam-page">Tugas 2 (C. Crawling Link Dalam Page)</a></li>
+</ul>
+
   </nav></div>
 
 </div></div>

@@ -52,9 +52,11 @@ If you have a markdown file and you'd like to quickly add YAML metadata to it, s
 jupyter-book myst init path/to/markdownfile.md
 ``` -->
 
-# Crawling
+# **Crawling**
 
-## 1 Install dan Import Library
+# Tugas 1 (Crawling SpringerNature)
+
+## 1. Install dan Import Library
 ```{code-cell}
 !pip install sprynger
 ```
@@ -64,14 +66,14 @@ import requests
 import pandas as pd
 ```
 
-## 2. Menyimpan API key dan alamat API spring
+## 2. Menyimpan API Key dan Alamat API
 ```{code-cell}
 api_key = "0da1ccc0af5096386b64c11f74abe242"
 # meta API v2
 url = "https://api.springernature.com/meta/v2/json"
 ```
 
-## 3. Input kata kunci dan tampung hasil pencarian
+## 3. Input Kata Kunci dan Tampung Hasil Pencarian
 
 ```{code-cell}
 # Kata kunci
@@ -85,11 +87,11 @@ keywords = [
 rows = []
 ```
 
-## 4. Mengambil informasi dari tiap artikel
+## 4. Mengambil Informasi Dari Tiap Artikel
 
 ```{code-cell}
 # Jumlah maksimal data per keyword
-hasil_max = 50
+hasil_max = 100
 per_page = 10
 ```
 
@@ -97,11 +99,11 @@ per_page = 10
 for keyword in keywords:
     print(f"\n🔎 Sedang crawling keyword: {keyword}")
 
-    for start in range(1, hasil_max, per_page):  
+    for start in range(1, hasil_max, per_page):
         params = {
             "q": keyword,
             "api_key": api_key,
-            "p": per_page,   
+            "p": per_page,
             "s": start
         }
 
@@ -109,10 +111,10 @@ for keyword in keywords:
 
         if response.status_code == 200:
             data = response.json()
-            
+
             # ambil informasi artikel
             for record in data.get('records', []):
-              
+
                 doi = record.get("doi", "N/A")
                 title = record.get("title", "No title")
                 abstract = record.get("abstract", "No abstract")
@@ -120,7 +122,7 @@ for keyword in keywords:
                 # publicationDate = record.get("publicationDate", "N/A")
                 # publisher = record.get("publisher", "N/A")
                 # keywords_article = "; ".join(record.get("keyword", [])) if record.get("keyword") else "N/A"
-                
+
                 # keyword artikel list
                 # ubah jadi string
                 keywords_article = "; ".join(record.get("keyword", [])) if record.get("keyword") else "N/A"
@@ -132,7 +134,7 @@ for keyword in keywords:
                 else:
                     url_article = "N/A"
 
-                # 🔹 Tambahkan print untuk cek hasil
+                # Tambahkan print untuk cek hasil
                 print(f"DOI: {doi}")
                 print(f"Title: {title}")
                 print(f"Abstract: {abstract}\n")
@@ -153,16 +155,16 @@ for keyword in keywords:
             print("Error:", response.status_code, response.text)
 ```
 
-## 5. Menyimpan dan menampilkan data
+## 5. Menyimpan dan Menampilkan Data
 
 ```{code-cell}
 # Simpan ke DataFrame
 df = pd.DataFrame(rows)
 
 # Simpan ke CSV
-df.to_csv("hasil_crawling_tugas2.csv", index=False, encoding="utf-8")
+df.to_csv("PPW_HasilCrawling_Tugas1(SpringerNature).csv", index=False, encoding="utf-8")
 
-print("Data berhasil disimpan ke hasil_crawling_tugas2.csv")
+print("Data berhasil disimpan ke PPW_HasilCrawling_Tugas1(SpringerNature).csv")
 print(f"Total data: {len(df)}")
 
 # Tampilkan hanya 10 data pertama
@@ -170,5 +172,13 @@ print("\n 10 data pertama:")
 print(df.head(10))
 ```
 
-## Link Google Colab Crawling :
-- [Crawling_SpringNature_PPW](https://colab.research.google.com/drive/1tNi7P0o_g7S_EX7nTZp8Bkt_FsVZyLFi?usp=sharing)
+## 6. Code Crawling Tugas 1 (SpringerNature)
+- [PPW_Crawling_Tugas1(SpringerNature)](https://colab.research.google.com/drive/1tNi7P0o_g7S_EX7nTZp8Bkt_FsVZyLFi?usp=sharing)
+
+
+
+# Tugas 2 (A. Crawling PTA Trunojoyo)
+
+# Tugas 2 (B. Crawling Berita Online)
+
+# Tugas 2 (C. Crawling Link Dalam Page)
