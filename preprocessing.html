@@ -532,19 +532,20 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id50">3. Hitung Frekuensi Kata</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id51">4. Meng-index Term Berdasarkan Frekuensi Kemunculan Kata</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id52">5. Menampilkan Kata Paling Sering Muncul</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id53">6. Menyimpan Term Dan Frekuensi Yang Sudah Diindex</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id53">6. Menyimpan Term Dan Frekuensi Yang Sudah Diindex</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id54">1. Import Library</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id55">2. Load Dataset</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id56">3. Hapus Kolom</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id57">4. Menampilkan Data Setelah PreProcessing</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id58">5. Menyimpan Data Akhir Hasil PreProcessing</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id54">6. Hapus Kolom Hasil Setiap Tahap Preprocessing</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id55">1. Import Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id56">2. Load Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id57">3. Hapus Kolom</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id58">4. Menampilkan Data Setelah PreProcessing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id59">5. Menyimpan Data Akhir Hasil PreProcessing</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-data-kosong">7. Cek Data Kosong</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id59">1. Import Library</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id60">2. Load Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id60">1. Import Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id61">2. Load Dataset</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-data-kosong-kolom-isi-berita">3. Cek Data Kosong Kolom Isi Berita</a></li>
 </ul>
 </li>
@@ -618,7 +619,7 @@ jupyter-book myst init path/to/markdownfile.md
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Administrator\AppData\Local\Temp\ipykernel_1064\2000257049.py:1: DeprecationWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Administrator\AppData\Local\Temp\ipykernel_4292\2000257049.py:1: DeprecationWarning: 
 Pyarrow will become a required dependency of pandas in the next major release of pandas (pandas 3.0),
 (to allow more performant data types, such as the Arrow string type, and better interoperability with other libraries)
 but was not found to be installed on your system.
@@ -2939,11 +2940,21 @@ Requirement already satisfied: typing-extensions&gt;=4.0.0 in c:\users\administr
 </div>
 </div>
 </section>
+<section id="id53">
+<h2>6. Menyimpan Term Dan Frekuensi Yang Sudah Diindex<a class="headerlink" href="#id53" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_frekuensi_kata</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;PPW_Tugas3_BeritaOnline_FrekuensiKata.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="id53">
-<h1>6. Menyimpan Term Dan Frekuensi Yang Sudah Diindex<a class="headerlink" href="#id53" title="Link to this heading">#</a></h1>
-<section id="id54">
-<h2>1. Import Library<a class="headerlink" href="#id54" title="Link to this heading">#</a></h2>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id54">
+<h1>6. Hapus Kolom Hasil Setiap Tahap Preprocessing<a class="headerlink" href="#id54" title="Link to this heading">#</a></h1>
+<section id="id55">
+<h2>1. Import Library<a class="headerlink" href="#id55" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -2952,8 +2963,8 @@ Requirement already satisfied: typing-extensions&gt;=4.0.0 in c:\users\administr
 </div>
 </div>
 </section>
-<section id="id55">
-<h2>2. Load Dataset<a class="headerlink" href="#id55" title="Link to this heading">#</a></h2>
+<section id="id56">
+<h2>2. Load Dataset<a class="headerlink" href="#id56" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_berita</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;PPW_Tugas3_BeritaOnline_TahapPreProcessing.csv&quot;</span><span class="p">)</span>
@@ -2969,8 +2980,8 @@ Requirement already satisfied: typing-extensions&gt;=4.0.0 in c:\users\administr
 </div>
 </div>
 </section>
-<section id="id56">
-<h2>3. Hapus Kolom<a class="headerlink" href="#id56" title="Link to this heading">#</a></h2>
+<section id="id57">
+<h2>3. Hapus Kolom<a class="headerlink" href="#id57" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># hapus kolom tahapan preprocessing (sebelum stemming)</span>
@@ -2994,8 +3005,8 @@ Requirement already satisfied: typing-extensions&gt;=4.0.0 in c:\users\administr
 </div>
 </div>
 </section>
-<section id="id57">
-<h2>4. Menampilkan Data Setelah PreProcessing<a class="headerlink" href="#id57" title="Link to this heading">#</a></h2>
+<section id="id58">
+<h2>4. Menampilkan Data Setelah PreProcessing<a class="headerlink" href="#id58" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># menampilkan data kolom</span>
@@ -3012,8 +3023,8 @@ Requirement already satisfied: typing-extensions&gt;=4.0.0 in c:\users\administr
 </div>
 </div>
 </section>
-<section id="id58">
-<h2>5. Menyimpan Data Akhir Hasil PreProcessing<a class="headerlink" href="#id58" title="Link to this heading">#</a></h2>
+<section id="id59">
+<h2>5. Menyimpan Data Akhir Hasil PreProcessing<a class="headerlink" href="#id59" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">preprocessing_data_berita</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;PPW_Tugas3_BeritaOnline_PreProcessing.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -3025,8 +3036,8 @@ Requirement already satisfied: typing-extensions&gt;=4.0.0 in c:\users\administr
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="cek-data-kosong">
 <h1>7. Cek Data Kosong<a class="headerlink" href="#cek-data-kosong" title="Link to this heading">#</a></h1>
-<section id="id59">
-<h2>1. Import Library<a class="headerlink" href="#id59" title="Link to this heading">#</a></h2>
+<section id="id60">
+<h2>1. Import Library<a class="headerlink" href="#id60" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -3035,8 +3046,8 @@ Requirement already satisfied: typing-extensions&gt;=4.0.0 in c:\users\administr
 </div>
 </div>
 </section>
-<section id="id60">
-<h2>2. Load Dataset<a class="headerlink" href="#id60" title="Link to this heading">#</a></h2>
+<section id="id61">
+<h2>2. Load Dataset<a class="headerlink" href="#id61" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_berita_preprocessing</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;PPW_Tugas3_BeritaOnline_PreProcessing.csv&quot;</span><span class="p">)</span>
@@ -3251,19 +3262,20 @@ Requirement already satisfied: typing-extensions&gt;=4.0.0 in c:\users\administr
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id50">3. Hitung Frekuensi Kata</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id51">4. Meng-index Term Berdasarkan Frekuensi Kemunculan Kata</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id52">5. Menampilkan Kata Paling Sering Muncul</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id53">6. Menyimpan Term Dan Frekuensi Yang Sudah Diindex</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id53">6. Menyimpan Term Dan Frekuensi Yang Sudah Diindex</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id54">1. Import Library</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id55">2. Load Dataset</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id56">3. Hapus Kolom</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id57">4. Menampilkan Data Setelah PreProcessing</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id58">5. Menyimpan Data Akhir Hasil PreProcessing</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id54">6. Hapus Kolom Hasil Setiap Tahap Preprocessing</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id55">1. Import Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id56">2. Load Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id57">3. Hapus Kolom</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id58">4. Menampilkan Data Setelah PreProcessing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id59">5. Menyimpan Data Akhir Hasil PreProcessing</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-data-kosong">7. Cek Data Kosong</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id59">1. Import Library</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id60">2. Load Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id60">1. Import Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id61">2. Load Dataset</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-data-kosong-kolom-isi-berita">3. Cek Data Kosong Kolom Isi Berita</a></li>
 </ul>
 </li>

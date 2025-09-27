@@ -1124,8 +1124,14 @@ print("Jumlah data tabel frekuensi kata:")
 print(data_frekuensi_kata.shape)
 ```
 
+## 6. Menyimpan Term Dan Frekuensi Yang Sudah Diindex
 
-# 6. Menyimpan Term Dan Frekuensi Yang Sudah Diindex
+```{code-cell}
+data_frekuensi_kata.to_csv("PPW_Tugas3_BeritaOnline_FrekuensiKata.csv", index=True)
+```
+
+
+# 6. Hapus Kolom Hasil Setiap Tahap Preprocessing
 
 ## 1. Import Library
 
