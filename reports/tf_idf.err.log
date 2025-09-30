@@ -35,9 +35,6 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-import pandas as pd
-from sklearn.feature_extraction.text import TfidfVectorizer
-from IPython.display import display
-import re
+berita_tfidf.to_csv("PPW_Tugas4_BeritaOnline_TFIDF.csv", index=False)
 -------------------
 
