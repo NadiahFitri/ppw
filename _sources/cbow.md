@@ -189,6 +189,7 @@ pta_manajemen_cbow.to_csv("PPW_Tugas4_PTATrunojoyo(7Manajemen)_CBOW.csv", index=
 
 
 # Tugas 4 : CBOW Berita Online
+Keterangan : CBOW menggunakan data berita isi berita hasil preprocessing melalui tahap hapus stopword dan stemming.
 
 ## 1. Install dan Import Library
 
@@ -373,3 +374,191 @@ berita_cbow.to_csv("PPW_Tugas4_BeritaOnline_CBOW.csv", index=False)
 
 ## 11. Code Tugas 4 - CBOW Berita Online
 - [PPW_Tugas4_CBOW(BeritaOnline)](https://colab.research.google.com/drive/1_H2BafYEkR2y_V6m-qM8MGhMANshX28S?usp=sharing)
+
+
+# Tugas 4 : CBOW Berita Online
+Keterangan : CBOW menggunakan data berita isi berita hasil preprocessing tanpa tahap hapus stopword dan stemming.
+
+## 1. Install dan Import Library
+
+```{code-cell}
+!pip install --upgrade gensim
+```
+
+```{code-cell}
+import pandas as pd
+import re
+import numpy as np
+import ast
+from gensim.models import Word2Vec
+from IPython.display import display
+```
+
+## 2. Load Dataset
+
+```{code-cell}
+berita_preprocessing = pd.read_csv("PPW_Tugas3_BeritaOnline_PreProcessing_2.csv")
+```
+
+```{code-cell}
+# cek tipe data kolom isi berita hasil preprocessing
+type(berita_preprocessing['isi_berita_preprocessing'].iloc[0])
+```
+
+```{code-cell}
+# mengubah tipe data kolom isi berita hasil preprocessing
+# awalnya string diubah jadi list
+berita_preprocessing['isi_berita_preprocessing'] = berita_preprocessing['isi_berita_preprocessing'].apply(
+    lambda x: ast.literal_eval(x) if isinstance(x, str) else x
+)
+```
+
+```{code-cell}
+# cek tipe data kolom isi berita hasil preprocessing
+type(berita_preprocessing['isi_berita_preprocessing'].iloc[0])
+```
+
+```{code-cell}
+# menampilkan data
+display(berita_preprocessing.head())
+```
+
+## 3. Pembersihan Kolom Isi Berita Hasil PreProcessing
+
+```{code-cell}
+def pembersihan_teks(text):
+    text = str(text)
+    text = re.sub(r"[\[\]]", " ", text)    # hapus [ ]
+    text = re.sub(r"[\'\"]", " ", text)    # hapus ' "
+    text = re.sub(r",", " ", text)         # hapus koma
+    text = re.sub(r"\s+", " ", text).strip()  # rapikan spasi
+    return text
+```
+
+```{code-cell}
+berita_preprocessing['isi_berita_preprocessing_bersih'] = berita_preprocessing['isi_berita_preprocessing'].apply(pembersihan_teks)
+```
+
+```{code-cell}
+display(berita_preprocessing[["isi_berita_preprocessing", "isi_berita_preprocessing_bersih"]].head(10))
+```
+
+```{code-cell}
+# kolom isi berita hasil preprocessing yang sudah dibersihkan ditambahkan ke kolom terakhir
+display(berita_preprocessing.head())
+```
+
+```{code-cell}
+# cek tipe data kolom isi berita hasil preprocessing yang sudah dibersihkan
+type(berita_preprocessing['isi_berita_preprocessing_bersih'].iloc[0])
+```
+
+## 4. Mengambil Corpus
+
+```{code-cell}
+# list isi berita hasil preprocessing
+corpus = berita_preprocessing['isi_berita_preprocessing'].tolist()
+```
+
+```{code-cell}
+print(corpus)
+```
+
+## 5. Membangun Model Word2Vec CBOW
+
+```{code-cell}
+# word embedding
+model = Word2Vec(
+    sentences=corpus,
+    vector_size=100,   # dimensi embedding
+    window=5,          # ukuran konteks
+    min_count=1,       # minimum frekuensi kata
+    sg=0,              # 0 = CBOW
+    workers=4
+)
+```
+
+```{code-cell}
+model
+```
+
+```{code-cell}
+print(model)
+```
+
+## 6. Dokumen Embedding
+
+```{code-cell}
+# fungsi mendapatkan embedding dokumen (rata-rata vektor kata)
+def dokument_vector(doc, model):
+    valid_words = [word for word in doc if word in model.wv]
+    if valid_words:
+        return np.mean(model.wv[valid_words], axis=0)
+    else:
+        return np.zeros(model.vector_size)
+```
+
+```{code-cell}
+# Transformasi semua dokumen menjadi embedding
+berita_preprocessing['embedding_array'] = berita_preprocessing['isi_berita_preprocessing'].apply(lambda x: dokument_vector(x, model))
+```
+
+## 7. Membuat DataFrame Baru Dengan Metadata + Embedding
+
+```{code-cell}
+embedding_berita_preprocessing = berita_preprocessing[['id_berita','judul_berita','isi_berita','tanggal_berita',
+                   'isi_berita_preprocessing','isi_berita_preprocessing_bersih',
+                   'embedding_array','kategori_berita']]
+```
+
+```{code-cell}
+display(embedding_berita_preprocessing.head())
+```
+
+## 8. Mengubah Embedding (Array) Menjadi Kolom Numerik (VSM Versi CBOW)
+
+```{code-cell}
+num_features = len(embedding_berita_preprocessing['embedding_array'].iloc[0])  # dimensi embedding
+columns = [f'f{i+1}' for i in range(num_features)]
+```
+
+```{code-cell}
+# Ekstrak array ke DataFrame
+data_dict = {col: [] for col in columns}
+for emb in embedding_berita_preprocessing['embedding_array']:
+    for i, value in enumerate(emb):
+        data_dict[f'f{i+1}'].append(value)
+```
+
+```{code-cell}
+embedding_features = pd.DataFrame(data_dict)
+```
+
+```{code-cell}
+display(embedding_features.head(10))
+```
+
+## 9. Menggabungkan Dengan Metadata
+
+```{code-cell}
+# kategori_berita dipindah ke akhir
+berita_cbow = pd.concat([
+    embedding_berita_preprocessing[['id_berita','judul_berita','isi_berita','tanggal_berita',
+                  'isi_berita_preprocessing','isi_berita_preprocessing_bersih']].reset_index(drop=True),
+    embedding_features.reset_index(drop=True),
+    embedding_berita_preprocessing[['kategori_berita']].reset_index(drop=True)
+], axis=1)
+```
+
+```{code-cell}
+display(berita_cbow.head(10))
+```
+
+## 10. Menyimpan Hasil CBOW
+
+```{code-cell}
+berita_cbow.to_csv("PPW_Tugas4_BeritaOnline_CBOW_2.csv", index=False)
+```
+
+## 11. Code Tugas 4 - CBOW Berita Online
+- [PPW_Tugas4_CBOW(BeritaOnline)_2](https://colab.research.google.com/drive/1sONboNEIIuBRV26Nniy-ov1ZHdaxkcTq?usp=sharing)

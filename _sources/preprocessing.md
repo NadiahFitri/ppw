@@ -664,6 +664,7 @@ pta_manajemen_bersih.to_csv("PPW_Tugas3_PTATrunojoyo(7Manajemen)_PreProcessing_1
 
 
 # Tugas 3 - PreProcessing Berita Online
+Keterangan : Preprocessing menggunakan hapus stopword dan stemming.
 
 # 1. Import Library
 
@@ -1209,3 +1210,441 @@ print("Jumlah baris kosong:", missing_count)
 
 # 8. Code Tugas 3 - PreProcessing Berita Online
 - [PPW_Tugas3_PreProcessing(BeritaOnline)](https://colab.research.google.com/drive/1YFLjN9FFoF3hROWWO2_3WS7M70YawDwg?usp=sharing)
+
+
+
+
+# Tugas 3 - PreProcessing Berita Online
+Keterangan : Preprocessing tanpa hapus stopword dan tanpa stemming.
+
+# 1. Import Library
+
+```{code-cell}
+import pandas as pd
+from IPython.display import display
+```
+
+
+
+# 2. Load Dataset
+
+```{code-cell}
+berita = pd.read_csv("PPW_HasilCrawling_Tugas2(BeritaOnline).csv")
+display(berita.head())
+```
+
+
+
+# 3. Struktur Data
+
+```{code-cell}
+print("Info Data Berita:")
+print(berita.info())
+```
+
+
+
+# 4. PreProcessing
+
+## 1. Punctuation Removal (Membersihkan Teks)
+
+### 1. Install dan Import Library
+
+```{code-cell}
+!pip install requests
+```
+
+```{code-cell}
+!pip install beautifulsoup4
+```
+
+```{code-cell}
+import pandas as pd
+import re
+import string
+from bs4 import BeautifulSoup
+```
+
+### 2. Fungsi Pembersihan Teks
+
+```{code-cell}
+def pembersihan_teks(text):
+    if pd.isnull(text):  # cek kalau ada NaN
+        return ""
+    text = text.lower()  # ubah ke huruf kecil
+    text = re.sub(r'\d+', '', text)  # hapus angka
+    text = text.translate(str.maketrans('', '', string.punctuation))  # hapus tanda baca
+    text = re.sub(r'\W+', ' ', text)  # hapus karakter non-alfabet (ganti dengan spasi)
+    text = BeautifulSoup(text, "html.parser").get_text()  # hapus tag HTML
+    text = text.strip()  # hapus spasi berlebih di awal/akhir
+    return text
+```
+
+### 3. Penerapan Kolom Isi Berita
+
+```{code-cell}
+berita["isi_berita_bersih"] = berita["isi_berita"].apply(pembersihan_teks)
+```
+
+```{code-cell}
+# Perbandingan kolom isi berita sebelum dan sesudah punctuation removal
+display(berita[["isi_berita", "isi_berita_bersih"]].head(10))
+```
+
+```{code-cell}
+# kolom isi berita setelah punctuation removal di tambahkan ke kolom paling kanan dari dataset
+display(berita.head(10))
+```
+
+```{code-cell}
+# OPSIONAL
+# kalau mau menyimpan data isi berita hasil punctuation removal, bisa aktifkan :
+# berita.to_csv("PPW_Tugas3_BeritaOnline_PunctuationRemoval_2.csv", index=False)
+```
+
+
+## 2. Hapus Emoji
+
+### 1. Install dan Import Library
+
+```{code-cell}
+!pip install emoji
+```
+
+```{code-cell}
+import emoji
+```
+
+### 2. Fungsi Hapus Emoji
+
+```{code-cell}
+def hapus_emoji(text):
+    if pd.isnull(text):
+        return ""
+    return emoji.demojize(text, language="en")
+```
+
+### 3. Penerapan Kolom Isi Berita
+
+```{code-cell}
+berita["isi_berita_noemoji"] = berita["isi_berita_bersih"].apply(hapus_emoji)
+```
+
+```{code-cell}
+# Perbandingan kolom isi berita sebelum dan sesudah hapus emoji
+display(berita[["isi_berita_bersih", "isi_berita_noemoji"]].head(10))
+```
+
+```{code-cell}
+# kolom isi berita setelah hapus emoji di tambahkan ke kolom paling kanan dari dataset
+display(berita.head(10))
+```
+
+```{code-cell}
+# OPSIONAL
+# kalau mau menyimpan data isi berita hasil hapus emoji, bisa aktifkan :
+# berita.to_csv("PPW_Tugas3_BeritaOnline_HapusEmoji_2.csv", index=False)
+```
+
+
+## 3. Tokenisasi
+
+### 1. Install dan Import Library
+
+```{code-cell}
+from nltk.tokenize import word_tokenize
+import nltk
+```
+
+```{code-cell}
+nltk.download('punkt_tab')
+```
+
+### 2. Fungsi Tokenisasi
+
+```{code-cell}
+def tokenisasi(text):
+    if pd.isnull(text):
+        return []
+    return word_tokenize(text)
+```
+
+### 3. Penerapan Kolom Isi Berita
+
+```{code-cell}
+berita["isi_berita_tokenisasi"] = berita["isi_berita_noemoji"].apply(tokenisasi)
+```
+
+```{code-cell}
+# Perbandingan kolom isi berita sebelum dan sesudah tokenisasi
+display(berita[["isi_berita_noemoji", "isi_berita_tokenisasi"]].head(10))
+```
+
+```{code-cell}
+# kolom isi berita setelah tokenisasi di tambahkan ke kolom paling kanan dari dataset
+display(berita.head(10))
+```
+
+```{code-cell}
+# OPSIONAL
+# kalau mau menyimpan data isi berita hasil tokenisasi, bisa aktifkan :
+# berita.to_csv("PPW_Tugas3_BeritaOnline_Tokenisasi_2.csv", index=False)
+```
+
+
+## 4. Cek Ejaan (Peter Norvig Spell Checker)
+
+### 1. Install dan Import Library
+
+```{code-cell}
+import pandas as pd
+import re
+import ast
+from collections import Counter
+```
+
+### 2. Buat Korpus
+
+- Korpus dibuat dari dataset : kolom isi_berita_tokenisasi.
+- digunakan sebagai kamus untuk cek ejaan
+
+```{code-cell}
+all_tokens = []
+for doc in berita["isi_berita_tokenisasi"].dropna():
+    if isinstance(doc, list):  # kalau sudah list
+        all_tokens.extend(doc)
+    elif isinstance(doc, str):  # kalau string list
+        try:
+            tokens = ast.literal_eval(doc)
+            if isinstance(tokens, list):
+                all_tokens.extend(tokens)
+        except:
+            pass
+
+# Membuat WORDS (kamus frekuensi)
+WORDS = Counter(all_tokens)
+print("Jumlah kata unik dalam WORDS:", len(WORDS))
+```
+
+### 3. Fungsi Probabilitas Dan Koreksi Kata
+
+```{code-cell}
+def P(word, N=sum(WORDS.values())):
+    "Probabilitas kata berdasarkan frekuensi dalam korpus."
+    if N == 0:  # kalau WORDS kosong
+        return 0
+    return WORDS[word] / N
+
+def correction(word):
+    "Kata koreksi yang paling mungkin untuk input word."
+    return max(candidates(word), key=P)
+
+def candidates(word):
+    "Menghasilkan kandidat koreksi untuk sebuah kata."
+    return (known([word]) or known(edits1(word)) or known(edits2(word)) or [word])
+
+def known(words):
+    "Subset dari kata yang ada di kamus WORDS."
+    return set(w for w in words if w in WORDS)
+
+def edits1(word):
+    "Semua kemungkinan edit (1 langkah) dari sebuah kata."
+    letters    = 'abcdefghijklmnopqrstuvwxyz'
+    splits     = [(word[:i], word[i:]) for i in range(len(word) + 1)]
+    deletes    = [L + R[1:]               for L, R in splits if R]
+    transposes = [L + R[1] + R[0] + R[2:] for L, R in splits if len(R) > 1]
+    replaces   = [L + c + R[1:]           for L, R in splits if R for c in letters]
+    inserts    = [L + c + R               for L, R in splits for c in letters]
+    return set(deletes + transposes + replaces + inserts)
+
+def edits2(word):
+    "Semua kemungkinan edit (2 langkah) dari sebuah kata."
+    return (e2 for e1 in edits1(word) for e2 in edits1(e1))
+```
+
+### 4. Fungsi Penerapan Koreksi Kata
+
+```{code-cell}
+def ejaan_benar(tokens):
+    if not isinstance(tokens, list):
+        return []
+    return [correction(word) for word in tokens]
+```
+
+### 5. Penerapan Kolom Isi Berita
+
+```{code-cell}
+# karena spell check ini tahap akhir preprocessing, maka nama kolom jadi : isi_berita_preprocessing
+# kolom isi_berita_preprocessing akan disimpan ke file dataset
+# kolom tahap preprocessing lain (sebelum spell check) akan di drop
+berita["isi_berita_preprocessing"] = (
+    berita["isi_berita_tokenisasi"]
+    .apply(lambda x: ast.literal_eval(x) if isinstance(x, str) else x)
+    .apply(ejaan_benar)
+)
+```
+
+```{code-cell}
+# Perbandingan kolom isi berita sebelum dan sesudah di cek ejaan
+display(berita[["isi_berita_tokenisasi", "isi_berita_preprocessing"]].head(10))
+```
+
+```{code-cell}
+# kolom isi berita setelah dicek ejaan di tambahkan ke kolom paling kanan dari dataset
+display(berita.head(10))
+```
+
+```{code-cell}
+# Menyimpan data hasil setiap tahap preprocessing
+berita.to_csv("PPW_Tugas3_BeritaOnline_TahapPreProcessing_2.csv", index=False)
+```
+
+```{code-cell}
+# OPSIONAL
+# cek tipe data : pastikan kolom isi_berita_preprocessing (hasil spell check) itu list
+print(berita["isi_berita_preprocessing"].apply(type).head())
+```
+
+
+
+# 5. Frekuensi Kata (Term)
+
+## 1. Install dan Import Library
+
+```{code-cell}
+import pandas as pd
+import ast
+from collections import Counter
+```
+
+## 2. Menggabungkan Token
+
+```{code-cell}
+all_tokens = []
+for doc in berita["isi_berita_preprocessing"].dropna():
+    if isinstance(doc, list):
+        all_tokens.extend(doc)
+```
+
+## 3. Hitung Frekuensi Kata
+
+```{code-cell}
+frekuensi_kata = Counter(all_tokens)
+```
+
+```{code-cell}
+# diubah jadi tabel
+data_frekuensi_kata = pd.DataFrame(frekuensi_kata.items(), columns=["kata", "frekuensi"])
+```
+
+```{code-cell}
+# diurutkan mulai dari kata paling sering muncul sampai kata paling sedikit muncul
+data_frekuensi_kata = data_frekuensi_kata.sort_values(by="frekuensi", ascending=False).reset_index(drop=True)
+```
+
+## 4. Meng-index Term Berdasarkan Frekuensi Kemunculan Kata
+
+```{code-cell}
+data_frekuensi_kata.index = data_frekuensi_kata.index + 1
+data_frekuensi_kata.index.name = "no"
+```
+
+## 5. Menampilkan Kata Paling Sering Muncul
+
+```{code-cell}
+print("10 kata paling sering muncul:")
+display(data_frekuensi_kata.head(10))
+```
+
+```{code-cell}
+# menampilkan jumlah data (baris dan kolom) tabel frekuensi kata
+print("Jumlah data tabel frekuensi kata:")
+print(data_frekuensi_kata.shape)
+```
+
+## 6. Menyimpan Term Dan Frekuensi Yang Sudah Diindex
+
+```{code-cell}
+data_frekuensi_kata.to_csv("PPW_Tugas3_BeritaOnline_FrekuensiKata_2.csv", index=True)
+```
+
+
+
+# 6. Hapus Kolom Hasil Setiap Tahap Preprocessing
+
+## 1. Import Library
+
+```{code-cell}
+import pandas as pd
+```
+
+## 2. Load Dataset
+
+```{code-cell}
+data_berita = pd.read_csv("PPW_Tugas3_BeritaOnline_TahapPreProcessing_2.csv")
+```
+
+```{code-cell}
+display(data_berita.head(10))
+```
+
+## 3. Hapus Kolom
+
+```{code-cell}
+# hapus kolom tahapan preprocessing (sebelum spell check)
+# hanya menyisakan kolom hasil tahap preprocessing akhir (spell check)
+hapus_kolom = [
+    'isi_berita_bersih',
+    'isi_berita_noemoji',
+    'isi_berita_tokenisasi'
+]
+```
+
+```{code-cell}
+preprocessing_data_berita = data_berita.drop(columns=hapus_kolom)
+```
+
+## 4. Menampilkan Data Setelah PreProcessing
+
+```{code-cell}
+# menampilkan data kolom
+print(preprocessing_data_berita.dtypes)
+```
+
+```{code-cell}
+display(preprocessing_data_berita.head(10))
+```
+
+## 5. Menyimpan Data Akhir Hasil PreProcessing
+
+```{code-cell}
+preprocessing_data_berita.to_csv("PPW_Tugas3_BeritaOnline_PreProcessing_2.csv", index=False)
+```
+
+
+
+# 7. Cek Data Kosong
+
+## 1. Import Library
+
+```{code-cell}
+import pandas as pd
+```
+
+## 2. Load Dataset
+
+```{code-cell}
+data_berita_preprocessing = pd.read_csv("PPW_Tugas3_BeritaOnline_PreProcessing_2.csv")
+```
+
+## 3. Cek Data Kosong Kolom Isi Berita
+
+```{code-cell}
+missing_count = data_berita_preprocessing["isi_berita_preprocessing"].isna().sum()
+print("Jumlah baris kosong:", missing_count)
+```
+
+
+
+# 8. Code Tugas 3 - PreProcessing Berita Online
+- [PPW_Tugas3_PreProcessing(BeritaOnline)_2](https://colab.research.google.com/drive/11nzuVYIBcUNkBwSk0vOvZXwD8jhtLxbg?usp=sharing)

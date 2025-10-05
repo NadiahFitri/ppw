@@ -60,6 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'preprocessing';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="TF-IDF (Term Frequency - Inverse Document Frequency)" href="tf_idf.html" />
     <link rel="prev" title="Crawling" href="crawling.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -202,6 +203,22 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="tf_idf.html"><strong>TF-IDF (Term Frequency - Inverse Document Frequency)</strong></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="cbow.html"><strong>CBOW (Continuous Bag Of Words)</strong></a></li>
 
 
 
@@ -550,6 +567,63 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#code-tugas-3-preprocessing-berita-online">8. Code Tugas 3 - PreProcessing Berita Online</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id62">Tugas 3 - PreProcessing Berita Online</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id63">1. Import Library</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id64">2. Load Dataset</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id65">3. Struktur Data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id66">4. PreProcessing</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id67">1. Punctuation Removal (Membersihkan Teks)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id68">1. Install dan Import Library</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id69">2. Fungsi Pembersihan Teks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id70">3. Penerapan Kolom Isi Berita</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id71">2. Hapus Emoji</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id72">1. Install dan Import Library</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id73">2. Fungsi Hapus Emoji</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id74">3. Penerapan Kolom Isi Berita</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id75">3. Tokenisasi</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id76">1. Install dan Import Library</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id77">2. Fungsi Tokenisasi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id78">3. Penerapan Kolom Isi Berita</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id79">4. Cek Ejaan (Peter Norvig Spell Checker)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id80">1. Install dan Import Library</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id81">2. Buat Korpus</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id82">3. Fungsi Probabilitas Dan Koreksi Kata</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id83">4. Fungsi Penerapan Koreksi Kata</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id84">5. Penerapan Kolom Isi Berita</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id85">5. Frekuensi Kata (Term)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id86">1. Install dan Import Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id87">2. Menggabungkan Token</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id88">3. Hitung Frekuensi Kata</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id89">4. Meng-index Term Berdasarkan Frekuensi Kemunculan Kata</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id90">5. Menampilkan Kata Paling Sering Muncul</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id91">6. Menyimpan Term Dan Frekuensi Yang Sudah Diindex</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id92">6. Hapus Kolom Hasil Setiap Tahap Preprocessing</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id93">1. Import Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id94">2. Load Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id95">3. Hapus Kolom</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id96">4. Menampilkan Data Setelah PreProcessing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id97">5. Menyimpan Data Akhir Hasil PreProcessing</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id98">7. Cek Data Kosong</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id99">1. Import Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id100">2. Load Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id101">3. Cek Data Kosong Kolom Isi Berita</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id102">8. Code Tugas 3 - PreProcessing Berita Online</a></li>
 </ul>
 
             </nav>
@@ -619,7 +693,7 @@ jupyter-book myst init path/to/markdownfile.md
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Administrator\AppData\Local\Temp\ipykernel_4292\2000257049.py:1: DeprecationWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Administrator\AppData\Local\Temp\ipykernel_9820\2000257049.py:1: DeprecationWarning: 
 Pyarrow will become a required dependency of pandas in the next major release of pandas (pandas 3.0),
 (to allow more performant data types, such as the Arrow string type, and better interoperability with other libraries)
 but was not found to be installed on your system.
@@ -2272,6 +2346,7 @@ Requirement already satisfied: typing-extensions&gt;=4.0.0 in c:\users\administr
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="tugas-3-preprocessing-berita-online">
 <h1>Tugas 3 - PreProcessing Berita Online<a class="headerlink" href="#tugas-3-preprocessing-berita-online" title="Link to this heading">#</a></h1>
+<p>Keterangan : Preprocessing menggunakan hapus stopword dan stemming.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="id18">
 <h1>1. Import Library<a class="headerlink" href="#id18" title="Link to this heading">#</a></h1>
@@ -3074,6 +3149,630 @@ Requirement already satisfied: typing-extensions&gt;=4.0.0 in c:\users\administr
 <li><p><a class="reference external" href="https://colab.research.google.com/drive/1YFLjN9FFoF3hROWWO2_3WS7M70YawDwg?usp=sharing">PPW_Tugas3_PreProcessing(BeritaOnline)</a></p></li>
 </ul>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="id62">
+<h1>Tugas 3 - PreProcessing Berita Online<a class="headerlink" href="#id62" title="Link to this heading">#</a></h1>
+<p>Keterangan : Preprocessing tanpa hapus stopword dan tanpa stemming.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id63">
+<h1>1. Import Library<a class="headerlink" href="#id63" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id64">
+<h1>2. Load Dataset<a class="headerlink" href="#id64" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">berita</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;PPW_HasilCrawling_Tugas2(BeritaOnline).csv&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">berita</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id65">
+<h1>3. Struktur Data<a class="headerlink" href="#id65" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Info Data Berita:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">berita</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id66">
+<h1>4. PreProcessing<a class="headerlink" href="#id66" title="Link to this heading">#</a></h1>
+<section id="id67">
+<h2>1. Punctuation Removal (Membersihkan Teks)<a class="headerlink" href="#id67" title="Link to this heading">#</a></h2>
+<section id="id68">
+<h3>1. Install dan Import Library<a class="headerlink" href="#id68" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>requests
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>beautifulsoup4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">string</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bs4</span><span class="w"> </span><span class="kn">import</span> <span class="n">BeautifulSoup</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id69">
+<h3>2. Fungsi Pembersihan Teks<a class="headerlink" href="#id69" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pembersihan_teks</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">isnull</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>  <span class="c1"># cek kalau ada NaN</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>  <span class="c1"># ubah ke huruf kecil</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\d+&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>  <span class="c1"># hapus angka</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">maketrans</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">string</span><span class="o">.</span><span class="n">punctuation</span><span class="p">))</span>  <span class="c1"># hapus tanda baca</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\W+&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>  <span class="c1"># hapus karakter non-alfabet (ganti dengan spasi)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="s2">&quot;html.parser&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>  <span class="c1"># hapus tag HTML</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>  <span class="c1"># hapus spasi berlebih di awal/akhir</span>
+    <span class="k">return</span> <span class="n">text</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id70">
+<h3>3. Penerapan Kolom Isi Berita<a class="headerlink" href="#id70" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">berita</span><span class="p">[</span><span class="s2">&quot;isi_berita_bersih&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">berita</span><span class="p">[</span><span class="s2">&quot;isi_berita&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pembersihan_teks</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Perbandingan kolom isi berita sebelum dan sesudah punctuation removal</span>
+<span class="n">display</span><span class="p">(</span><span class="n">berita</span><span class="p">[[</span><span class="s2">&quot;isi_berita&quot;</span><span class="p">,</span> <span class="s2">&quot;isi_berita_bersih&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># kolom isi berita setelah punctuation removal di tambahkan ke kolom paling kanan dari dataset</span>
+<span class="n">display</span><span class="p">(</span><span class="n">berita</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># OPSIONAL</span>
+<span class="c1"># kalau mau menyimpan data isi berita hasil punctuation removal, bisa aktifkan :</span>
+<span class="c1"># berita.to_csv(&quot;PPW_Tugas3_BeritaOnline_PunctuationRemoval_2.csv&quot;, index=False)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id71">
+<h2>2. Hapus Emoji<a class="headerlink" href="#id71" title="Link to this heading">#</a></h2>
+<section id="id72">
+<h3>1. Install dan Import Library<a class="headerlink" href="#id72" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>emoji
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">emoji</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id73">
+<h3>2. Fungsi Hapus Emoji<a class="headerlink" href="#id73" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">hapus_emoji</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">isnull</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">emoji</span><span class="o">.</span><span class="n">demojize</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s2">&quot;en&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id74">
+<h3>3. Penerapan Kolom Isi Berita<a class="headerlink" href="#id74" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">berita</span><span class="p">[</span><span class="s2">&quot;isi_berita_noemoji&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">berita</span><span class="p">[</span><span class="s2">&quot;isi_berita_bersih&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">hapus_emoji</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Perbandingan kolom isi berita sebelum dan sesudah hapus emoji</span>
+<span class="n">display</span><span class="p">(</span><span class="n">berita</span><span class="p">[[</span><span class="s2">&quot;isi_berita_bersih&quot;</span><span class="p">,</span> <span class="s2">&quot;isi_berita_noemoji&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># kolom isi berita setelah hapus emoji di tambahkan ke kolom paling kanan dari dataset</span>
+<span class="n">display</span><span class="p">(</span><span class="n">berita</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># OPSIONAL</span>
+<span class="c1"># kalau mau menyimpan data isi berita hasil hapus emoji, bisa aktifkan :</span>
+<span class="c1"># berita.to_csv(&quot;PPW_Tugas3_BeritaOnline_HapusEmoji_2.csv&quot;, index=False)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id75">
+<h2>3. Tokenisasi<a class="headerlink" href="#id75" title="Link to this heading">#</a></h2>
+<section id="id76">
+<h3>1. Install dan Import Library<a class="headerlink" href="#id76" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">nltk.tokenize</span><span class="w"> </span><span class="kn">import</span> <span class="n">word_tokenize</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">nltk</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt_tab&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id77">
+<h3>2. Fungsi Tokenisasi<a class="headerlink" href="#id77" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">tokenisasi</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">isnull</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[]</span>
+    <span class="k">return</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id78">
+<h3>3. Penerapan Kolom Isi Berita<a class="headerlink" href="#id78" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">berita</span><span class="p">[</span><span class="s2">&quot;isi_berita_tokenisasi&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">berita</span><span class="p">[</span><span class="s2">&quot;isi_berita_noemoji&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">tokenisasi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Perbandingan kolom isi berita sebelum dan sesudah tokenisasi</span>
+<span class="n">display</span><span class="p">(</span><span class="n">berita</span><span class="p">[[</span><span class="s2">&quot;isi_berita_noemoji&quot;</span><span class="p">,</span> <span class="s2">&quot;isi_berita_tokenisasi&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># kolom isi berita setelah tokenisasi di tambahkan ke kolom paling kanan dari dataset</span>
+<span class="n">display</span><span class="p">(</span><span class="n">berita</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># OPSIONAL</span>
+<span class="c1"># kalau mau menyimpan data isi berita hasil tokenisasi, bisa aktifkan :</span>
+<span class="c1"># berita.to_csv(&quot;PPW_Tugas3_BeritaOnline_Tokenisasi_2.csv&quot;, index=False)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id79">
+<h2>4. Cek Ejaan (Peter Norvig Spell Checker)<a class="headerlink" href="#id79" title="Link to this heading">#</a></h2>
+<section id="id80">
+<h3>1. Install dan Import Library<a class="headerlink" href="#id80" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">ast</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id81">
+<h3>2. Buat Korpus<a class="headerlink" href="#id81" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Korpus dibuat dari dataset : kolom isi_berita_tokenisasi.</p></li>
+<li><p>digunakan sebagai kamus untuk cek ejaan</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_tokens</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">berita</span><span class="p">[</span><span class="s2">&quot;isi_berita_tokenisasi&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">():</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>  <span class="c1"># kalau sudah list</span>
+        <span class="n">all_tokens</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>  <span class="c1"># kalau string list</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">tokens</span> <span class="o">=</span> <span class="n">ast</span><span class="o">.</span><span class="n">literal_eval</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tokens</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                <span class="n">all_tokens</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">pass</span>
+
+<span class="c1"># Membuat WORDS (kamus frekuensi)</span>
+<span class="n">WORDS</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">all_tokens</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlah kata unik dalam WORDS:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">WORDS</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id82">
+<h3>3. Fungsi Probabilitas Dan Koreksi Kata<a class="headerlink" href="#id82" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">P</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="nb">sum</span><span class="p">(</span><span class="n">WORDS</span><span class="o">.</span><span class="n">values</span><span class="p">())):</span>
+    <span class="s2">&quot;Probabilitas kata berdasarkan frekuensi dalam korpus.&quot;</span>
+    <span class="k">if</span> <span class="n">N</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># kalau WORDS kosong</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="n">WORDS</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">/</span> <span class="n">N</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">correction</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+    <span class="s2">&quot;Kata koreksi yang paling mungkin untuk input word.&quot;</span>
+    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">candidates</span><span class="p">(</span><span class="n">word</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="n">P</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">candidates</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+    <span class="s2">&quot;Menghasilkan kandidat koreksi untuk sebuah kata.&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">known</span><span class="p">([</span><span class="n">word</span><span class="p">])</span> <span class="ow">or</span> <span class="n">known</span><span class="p">(</span><span class="n">edits1</span><span class="p">(</span><span class="n">word</span><span class="p">))</span> <span class="ow">or</span> <span class="n">known</span><span class="p">(</span><span class="n">edits2</span><span class="p">(</span><span class="n">word</span><span class="p">))</span> <span class="ow">or</span> <span class="p">[</span><span class="n">word</span><span class="p">])</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">known</span><span class="p">(</span><span class="n">words</span><span class="p">):</span>
+    <span class="s2">&quot;Subset dari kata yang ada di kamus WORDS.&quot;</span>
+    <span class="k">return</span> <span class="nb">set</span><span class="p">(</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">WORDS</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">edits1</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+    <span class="s2">&quot;Semua kemungkinan edit (1 langkah) dari sebuah kata.&quot;</span>
+    <span class="n">letters</span>    <span class="o">=</span> <span class="s1">&#39;abcdefghijklmnopqrstuvwxyz&#39;</span>
+    <span class="n">splits</span>     <span class="o">=</span> <span class="p">[(</span><span class="n">word</span><span class="p">[:</span><span class="n">i</span><span class="p">],</span> <span class="n">word</span><span class="p">[</span><span class="n">i</span><span class="p">:])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+    <span class="n">deletes</span>    <span class="o">=</span> <span class="p">[</span><span class="n">L</span> <span class="o">+</span> <span class="n">R</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>               <span class="k">for</span> <span class="n">L</span><span class="p">,</span> <span class="n">R</span> <span class="ow">in</span> <span class="n">splits</span> <span class="k">if</span> <span class="n">R</span><span class="p">]</span>
+    <span class="n">transposes</span> <span class="o">=</span> <span class="p">[</span><span class="n">L</span> <span class="o">+</span> <span class="n">R</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">R</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">R</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span> <span class="k">for</span> <span class="n">L</span><span class="p">,</span> <span class="n">R</span> <span class="ow">in</span> <span class="n">splits</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">R</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="n">replaces</span>   <span class="o">=</span> <span class="p">[</span><span class="n">L</span> <span class="o">+</span> <span class="n">c</span> <span class="o">+</span> <span class="n">R</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>           <span class="k">for</span> <span class="n">L</span><span class="p">,</span> <span class="n">R</span> <span class="ow">in</span> <span class="n">splits</span> <span class="k">if</span> <span class="n">R</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">letters</span><span class="p">]</span>
+    <span class="n">inserts</span>    <span class="o">=</span> <span class="p">[</span><span class="n">L</span> <span class="o">+</span> <span class="n">c</span> <span class="o">+</span> <span class="n">R</span>               <span class="k">for</span> <span class="n">L</span><span class="p">,</span> <span class="n">R</span> <span class="ow">in</span> <span class="n">splits</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">letters</span><span class="p">]</span>
+    <span class="k">return</span> <span class="nb">set</span><span class="p">(</span><span class="n">deletes</span> <span class="o">+</span> <span class="n">transposes</span> <span class="o">+</span> <span class="n">replaces</span> <span class="o">+</span> <span class="n">inserts</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">edits2</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+    <span class="s2">&quot;Semua kemungkinan edit (2 langkah) dari sebuah kata.&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">e2</span> <span class="k">for</span> <span class="n">e1</span> <span class="ow">in</span> <span class="n">edits1</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="k">for</span> <span class="n">e2</span> <span class="ow">in</span> <span class="n">edits1</span><span class="p">(</span><span class="n">e1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id83">
+<h3>4. Fungsi Penerapan Koreksi Kata<a class="headerlink" href="#id83" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">ejaan_benar</span><span class="p">(</span><span class="n">tokens</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tokens</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[]</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">correction</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id84">
+<h3>5. Penerapan Kolom Isi Berita<a class="headerlink" href="#id84" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># karena spell check ini tahap akhir preprocessing, maka nama kolom jadi : isi_berita_preprocessing</span>
+<span class="c1"># kolom isi_berita_preprocessing akan disimpan ke file dataset</span>
+<span class="c1"># kolom tahap preprocessing lain (sebelum spell check) akan di drop</span>
+<span class="n">berita</span><span class="p">[</span><span class="s2">&quot;isi_berita_preprocessing&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">berita</span><span class="p">[</span><span class="s2">&quot;isi_berita_tokenisasi&quot;</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">ast</span><span class="o">.</span><span class="n">literal_eval</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">x</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">ejaan_benar</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Perbandingan kolom isi berita sebelum dan sesudah di cek ejaan</span>
+<span class="n">display</span><span class="p">(</span><span class="n">berita</span><span class="p">[[</span><span class="s2">&quot;isi_berita_tokenisasi&quot;</span><span class="p">,</span> <span class="s2">&quot;isi_berita_preprocessing&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># kolom isi berita setelah dicek ejaan di tambahkan ke kolom paling kanan dari dataset</span>
+<span class="n">display</span><span class="p">(</span><span class="n">berita</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Menyimpan data hasil setiap tahap preprocessing</span>
+<span class="n">berita</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;PPW_Tugas3_BeritaOnline_TahapPreProcessing_2.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># OPSIONAL</span>
+<span class="c1"># cek tipe data : pastikan kolom isi_berita_preprocessing (hasil spell check) itu list</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">berita</span><span class="p">[</span><span class="s2">&quot;isi_berita_preprocessing&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">type</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id85">
+<h1>5. Frekuensi Kata (Term)<a class="headerlink" href="#id85" title="Link to this heading">#</a></h1>
+<section id="id86">
+<h2>1. Install dan Import Library<a class="headerlink" href="#id86" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">ast</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id87">
+<h2>2. Menggabungkan Token<a class="headerlink" href="#id87" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_tokens</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">berita</span><span class="p">[</span><span class="s2">&quot;isi_berita_preprocessing&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">():</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="n">all_tokens</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id88">
+<h2>3. Hitung Frekuensi Kata<a class="headerlink" href="#id88" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frekuensi_kata</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">all_tokens</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># diubah jadi tabel</span>
+<span class="n">data_frekuensi_kata</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">frekuensi_kata</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;kata&quot;</span><span class="p">,</span> <span class="s2">&quot;frekuensi&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># diurutkan mulai dari kata paling sering muncul sampai kata paling sedikit muncul</span>
+<span class="n">data_frekuensi_kata</span> <span class="o">=</span> <span class="n">data_frekuensi_kata</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;frekuensi&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id89">
+<h2>4. Meng-index Term Berdasarkan Frekuensi Kemunculan Kata<a class="headerlink" href="#id89" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_frekuensi_kata</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">data_frekuensi_kata</span><span class="o">.</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">data_frekuensi_kata</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;no&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id90">
+<h2>5. Menampilkan Kata Paling Sering Muncul<a class="headerlink" href="#id90" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;10 kata paling sering muncul:&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">data_frekuensi_kata</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># menampilkan jumlah data (baris dan kolom) tabel frekuensi kata</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlah data tabel frekuensi kata:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data_frekuensi_kata</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id91">
+<h2>6. Menyimpan Term Dan Frekuensi Yang Sudah Diindex<a class="headerlink" href="#id91" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_frekuensi_kata</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;PPW_Tugas3_BeritaOnline_FrekuensiKata_2.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id92">
+<h1>6. Hapus Kolom Hasil Setiap Tahap Preprocessing<a class="headerlink" href="#id92" title="Link to this heading">#</a></h1>
+<section id="id93">
+<h2>1. Import Library<a class="headerlink" href="#id93" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id94">
+<h2>2. Load Dataset<a class="headerlink" href="#id94" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_berita</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;PPW_Tugas3_BeritaOnline_TahapPreProcessing_2.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">data_berita</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id95">
+<h2>3. Hapus Kolom<a class="headerlink" href="#id95" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># hapus kolom tahapan preprocessing (sebelum spell check)</span>
+<span class="c1"># hanya menyisakan kolom hasil tahap preprocessing akhir (spell check)</span>
+<span class="n">hapus_kolom</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;isi_berita_bersih&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;isi_berita_noemoji&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;isi_berita_tokenisasi&#39;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">preprocessing_data_berita</span> <span class="o">=</span> <span class="n">data_berita</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">hapus_kolom</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id96">
+<h2>4. Menampilkan Data Setelah PreProcessing<a class="headerlink" href="#id96" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># menampilkan data kolom</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">preprocessing_data_berita</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">preprocessing_data_berita</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id97">
+<h2>5. Menyimpan Data Akhir Hasil PreProcessing<a class="headerlink" href="#id97" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">preprocessing_data_berita</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;PPW_Tugas3_BeritaOnline_PreProcessing_2.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id98">
+<h1>7. Cek Data Kosong<a class="headerlink" href="#id98" title="Link to this heading">#</a></h1>
+<section id="id99">
+<h2>1. Import Library<a class="headerlink" href="#id99" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id100">
+<h2>2. Load Dataset<a class="headerlink" href="#id100" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_berita_preprocessing</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;PPW_Tugas3_BeritaOnline_PreProcessing_2.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id101">
+<h2>3. Cek Data Kosong Kolom Isi Berita<a class="headerlink" href="#id101" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">missing_count</span> <span class="o">=</span> <span class="n">data_berita_preprocessing</span><span class="p">[</span><span class="s2">&quot;isi_berita_preprocessing&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlah baris kosong:&quot;</span><span class="p">,</span> <span class="n">missing_count</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id102">
+<h1>8. Code Tugas 3 - PreProcessing Berita Online<a class="headerlink" href="#id102" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://colab.research.google.com/drive/11nzuVYIBcUNkBwSk0vOvZXwD8jhtLxbg?usp=sharing">PPW_Tugas3_PreProcessing(BeritaOnline)_2</a></p></li>
+</ul>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -3113,6 +3812,15 @@ Requirement already satisfied: typing-extensions&gt;=4.0.0 in c:\users\administr
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title"><strong>Crawling</strong></p>
       </div>
+    </a>
+    <a class="right-next"
+       href="tf_idf.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><strong>TF-IDF (Term Frequency - Inverse Document Frequency)</strong></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -3280,6 +3988,63 @@ Requirement already satisfied: typing-extensions&gt;=4.0.0 in c:\users\administr
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#code-tugas-3-preprocessing-berita-online">8. Code Tugas 3 - PreProcessing Berita Online</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id62">Tugas 3 - PreProcessing Berita Online</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id63">1. Import Library</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id64">2. Load Dataset</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id65">3. Struktur Data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id66">4. PreProcessing</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id67">1. Punctuation Removal (Membersihkan Teks)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id68">1. Install dan Import Library</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id69">2. Fungsi Pembersihan Teks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id70">3. Penerapan Kolom Isi Berita</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id71">2. Hapus Emoji</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id72">1. Install dan Import Library</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id73">2. Fungsi Hapus Emoji</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id74">3. Penerapan Kolom Isi Berita</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id75">3. Tokenisasi</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id76">1. Install dan Import Library</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id77">2. Fungsi Tokenisasi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id78">3. Penerapan Kolom Isi Berita</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id79">4. Cek Ejaan (Peter Norvig Spell Checker)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id80">1. Install dan Import Library</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id81">2. Buat Korpus</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id82">3. Fungsi Probabilitas Dan Koreksi Kata</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id83">4. Fungsi Penerapan Koreksi Kata</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id84">5. Penerapan Kolom Isi Berita</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id85">5. Frekuensi Kata (Term)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id86">1. Install dan Import Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id87">2. Menggabungkan Token</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id88">3. Hitung Frekuensi Kata</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id89">4. Meng-index Term Berdasarkan Frekuensi Kemunculan Kata</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id90">5. Menampilkan Kata Paling Sering Muncul</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id91">6. Menyimpan Term Dan Frekuensi Yang Sudah Diindex</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id92">6. Hapus Kolom Hasil Setiap Tahap Preprocessing</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id93">1. Import Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id94">2. Load Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id95">3. Hapus Kolom</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id96">4. Menampilkan Data Setelah PreProcessing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id97">5. Menyimpan Data Akhir Hasil PreProcessing</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id98">7. Cek Data Kosong</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id99">1. Import Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id100">2. Load Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id101">3. Cek Data Kosong Kolom Isi Berita</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id102">8. Code Tugas 3 - PreProcessing Berita Online</a></li>
 </ul>
 
   </nav></div>
