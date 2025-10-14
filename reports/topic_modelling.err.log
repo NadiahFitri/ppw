@@ -35,12 +35,6 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-import pandas as pd
-import numpy as np
-import re
-import ast
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.decomposition import LatentDirichletAllocation
-from IPython.display import display
+!pip install pyLDAvis
 -------------------
 
