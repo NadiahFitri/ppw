@@ -60,6 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'crawling_twitter';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Word Graph (Paper)" href="wordgraph_paper.html" />
     <link rel="prev" title="Deteksi Komunitas (Facebook)" href="deteksikomunitas_facebook.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -239,6 +240,8 @@
 <li class="toctree-l1"><a class="reference internal" href="deteksikomunitas_facebook.html"><strong>Deteksi Komunitas (Facebook)</strong></a></li>
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Crawling Twitter</strong></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="wordgraph_paper.html"><strong>Word Graph (Paper)</strong></a></li>
 
 </ul>
 
@@ -549,11 +552,15 @@ operable program or batch file.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;sudo&#39; is not recognized as an internal or external command,
-operable program or batch file.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>operable program or batch file.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;sudo&#39; is not recognized as an internal or external command,
-operable program or batch file.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>operable program or batch file.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;NODE_MAJOR&#39; is not recognized as an internal or external command,
@@ -565,9 +572,7 @@ operable program or batch file.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;sudo&#39; is not recognized as an internal or external command,
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>operable program or batch file.
+operable program or batch file.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;sudo&#39; is not recognized as an internal or external command,
@@ -603,7 +608,7 @@ operable program or batch file.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Administrator\AppData\Local\Temp\ipykernel_11004\3011501623.py:2: DeprecationWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Administrator\AppData\Local\Temp\ipykernel_7540\3011501623.py:2: DeprecationWarning: 
 Pyarrow will become a required dependency of pandas in the next major release of pandas (pandas 3.0),
 (to allow more performant data types, such as the Arrow string type, and better interoperability with other libraries)
 but was not found to be installed on your system.
@@ -620,19 +625,19 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 <h2>3. Inisialisasi<a class="headerlink" href="#inisialisasi" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">token_tweeter</span> <span class="o">=</span> <span class="s2">&quot;85c8d4695e95b5679a7a4148f9c37a74616fd7a8&quot;</span>  <span class="c1"># bisa ganti</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">token_tweeter</span> <span class="o">=</span> <span class="s2">&quot;7bb4dc6014b8d5c333c26eb085b59bc7b87de4ae&quot;</span>  <span class="c1"># bisa ganti</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">limit</span> <span class="o">=</span> <span class="mi">200</span> <span class="c1"># batas ambil data</span>
-<span class="n">nama_file</span> <span class="o">=</span> <span class="s2">&quot;PPW_Tugas8_Crawling(Tweeter).csv&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">limit</span> <span class="o">=</span> <span class="mi">2000</span> <span class="c1"># batas ambil data</span>
+<span class="n">nama_file</span> <span class="o">=</span> <span class="s2">&quot;PPW_Tugas8_Crawling(Twitter).csv&quot;</span>
 <span class="n">kata_kunci</span> <span class="o">=</span> <span class="s2">&quot;politik&quot;</span>
 <span class="n">hashtag</span> <span class="o">=</span> <span class="s2">&quot;#politik&quot;</span>
 
-<span class="n">query</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;(</span><span class="si">{</span><span class="n">kata_kunci</span><span class="si">}</span><span class="s1"> OR </span><span class="si">{</span><span class="n">hashtag</span><span class="si">}</span><span class="s1">) lang:id since:2024-01-01 until:2025-12-02&#39;</span>
+<span class="n">query</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;(</span><span class="si">{</span><span class="n">kata_kunci</span><span class="si">}</span><span class="s1"> OR </span><span class="si">{</span><span class="n">hashtag</span><span class="si">}</span><span class="s1">) lang:id&#39;</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Proses crawling akan dimulai menggunakan kata kunci &#39;</span><span class="si">{</span><span class="n">kata_kunci</span><span class="si">}</span><span class="s2">&#39; dan hashtag &#39;</span><span class="si">{</span><span class="n">hashtag</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -658,9 +663,7 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;npx&#39; is not recognized as an internal or external command,
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>operable program or batch file.
+operable program or batch file.
 </pre></div>
 </div>
 </div>
@@ -691,7 +694,7 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># data_tweeter = pd.read_csv(file_path)</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">data_tweeter</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
 
-<span class="ne">FileNotFoundError</span>: File tidak ditemukan: tweets-data/PPW_Tugas8_Crawling(Tweeter).csv
+<span class="ne">FileNotFoundError</span>: File tidak ditemukan: tweets-data/PPW_Tugas8_Crawling(Twitter).csv
 </pre></div>
 </div>
 </div>
@@ -743,6 +746,15 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title"><strong>Deteksi Komunitas (Facebook)</strong></p>
       </div>
+    </a>
+    <a class="right-next"
+       href="wordgraph_paper.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><strong>Word Graph (Paper)</strong></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>

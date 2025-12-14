@@ -60,6 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'deteksikomunitas_facebook';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Crawling Twitter" href="crawling_twitter.html" />
     <link rel="prev" title="LogFile" href="logfile.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -237,6 +238,10 @@
 
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Deteksi Komunitas (Facebook)</strong></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="crawling_twitter.html"><strong>Crawling Twitter</strong></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="wordgraph_paper.html"><strong>Word Graph (Paper)</strong></a></li>
 
 </ul>
 
@@ -440,7 +445,11 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#membuat-graph">3. Membuat Graph</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deteksi-komunitas-algoritma-louvain">4. Deteksi Komunitas (Algoritma Louvain)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-modularitas">5. Hitung Modularitas</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-tugas-8-deteksi-komunitas-facebook">6. Code Tugas 8 - Deteksi Komunitas (Facebook)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menampilkan-anggota-setiap-komunitas">6. Menampilkan Anggota Setiap Komunitas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-komunitas-terbesar">7. Menentukan Komunitas Terbesar</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subgraph-dari-komunitas-terbesar">8. Subgraph dari Komunitas Terbesar</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deteksi-komunitas-algoritma-louvain-pada-komunitas-terbesar">9. Deteksi Komunitas (Algoritma Louvain) pada Komunitas Terbesar</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-tugas-8-deteksi-komunitas-facebook">10. Code Tugas 8 - Deteksi Komunitas (Facebook)</a></li>
 </ul>
 </li>
 </ul>
@@ -525,20 +534,9 @@ jupyter-book myst init path/to/markdownfile.md
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting python-louvain
-  Downloading python-louvain-0.16.tar.gz (204 kB)
-  Preparing metadata (setup.py): started
-  Preparing metadata (setup.py): finished with status &#39;done&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: python-louvain in c:\users\administrator\appdata\local\programs\python\python311\lib\site-packages (0.16)
 Requirement already satisfied: networkx in c:\users\administrator\appdata\local\programs\python\python311\lib\site-packages (from python-louvain) (3.2.1)
 Requirement already satisfied: numpy in c:\users\administrator\appdata\local\programs\python\python311\lib\site-packages (from python-louvain) (1.26.4)
-Building wheels for collected packages: python-louvain
-  Building wheel for python-louvain (setup.py): started
-  Building wheel for python-louvain (setup.py): finished with status &#39;done&#39;
-  Created wheel for python-louvain: filename=python_louvain-0.16-py3-none-any.whl size=9404 sha256=4704b87c3405b845c9a0fd19fb3a7f2bbd77cd2aabd0871b6f37fb31b953a328
-  Stored in directory: c:\users\administrator\appdata\local\pip\cache\wheels\11\c1\e7\f62a211c636275e2da798bf0c307a3ae79aeddaf2524a03ce4
-Successfully built python-louvain
-Installing collected packages: python-louvain
-Successfully installed python-louvain-0.16
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[notice] A new release of pip is available: 25.0.1 -&gt; 25.3
@@ -558,7 +556,7 @@ Successfully installed python-louvain-0.16
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Administrator\AppData\Local\Temp\ipykernel_4176\660738462.py:1: DeprecationWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Administrator\AppData\Local\Temp\ipykernel_2280\660738462.py:1: DeprecationWarning: 
 Pyarrow will become a required dependency of pandas in the next major release of pandas (pandas 3.0),
 (to allow more performant data types, such as the Arrow string type, and better interoperability with other libraries)
 but was not found to be installed on your system.
@@ -883,8 +881,153 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 </div>
 </div>
 </section>
+<section id="menampilkan-anggota-setiap-komunitas">
+<h2>6. Menampilkan Anggota Setiap Komunitas<a class="headerlink" href="#menampilkan-anggota-setiap-komunitas" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Anggota setiap komunitas:&quot;</span><span class="p">)</span>
+
+<span class="c1"># Membuat dictionary komunitas -&gt; anggota</span>
+<span class="n">anggota_komunitas</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="n">kom</span> <span class="ow">in</span> <span class="n">partisi</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">anggota_komunitas</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">kom</span><span class="p">,</span> <span class="p">[])</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+
+<span class="c1"># Ubah ke DataFrame agar mudah dilihat</span>
+<span class="n">data_anggota_komunitas</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;Komunitas&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">anggota_komunitas</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span>
+    <span class="s1">&#39;Jumlah_Anggota&#39;</span><span class="p">:</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">anggota_komunitas</span><span class="o">.</span><span class="n">values</span><span class="p">()],</span>
+    <span class="s1">&#39;Anggota_Node&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">anggota_komunitas</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="p">})</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">data_anggota_komunitas</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="menentukan-komunitas-terbesar">
+<h2>7. Menentukan Komunitas Terbesar<a class="headerlink" href="#menentukan-komunitas-terbesar" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">komunitas_terbesar</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">anggota_komunitas</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">k</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">anggota_komunitas</span><span class="p">[</span><span class="n">k</span><span class="p">]))</span>
+<span class="n">anggota_terbesar</span> <span class="o">=</span> <span class="n">anggota_komunitas</span><span class="p">[</span><span class="n">komunitas_terbesar</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Komunitas terbesar: </span><span class="si">{</span><span class="n">komunitas_terbesar</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Jumlah anggota   : </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">anggota_terbesar</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="subgraph-dari-komunitas-terbesar">
+<h2>8. Subgraph dari Komunitas Terbesar<a class="headerlink" href="#subgraph-dari-komunitas-terbesar" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">subgraph_terbesar</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">subgraph</span><span class="p">(</span><span class="n">anggota_terbesar</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Info subgraph komunitas terbesar:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlah node :&quot;</span><span class="p">,</span> <span class="n">subgraph_terbesar</span><span class="o">.</span><span class="n">number_of_nodes</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlah edge :&quot;</span><span class="p">,</span> <span class="n">subgraph_terbesar</span><span class="o">.</span><span class="n">number_of_edges</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualisasi Subgraph Komunitas Terbesar</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">))</span>
+
+<span class="n">pos_sub</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">spring_layout</span><span class="p">(</span><span class="n">subgraph_terbesar</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span>
+    <span class="n">subgraph_terbesar</span><span class="p">,</span>
+    <span class="n">pos_sub</span><span class="p">,</span>
+    <span class="n">node_size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span>
+    <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span>
+<span class="p">)</span>
+
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span>
+    <span class="n">subgraph_terbesar</span><span class="p">,</span>
+    <span class="n">pos_sub</span><span class="p">,</span>
+    <span class="n">width</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+    <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span>
+<span class="p">)</span>
+
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_labels</span><span class="p">(</span>
+    <span class="n">subgraph_terbesar</span><span class="p">,</span>
+    <span class="n">pos_sub</span><span class="p">,</span>
+    <span class="n">font_size</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+    <span class="n">font_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span>
+<span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Graph Komunitas Terbesar Facebook&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="deteksi-komunitas-algoritma-louvain-pada-komunitas-terbesar">
+<h2>9. Deteksi Komunitas (Algoritma Louvain) pada Komunitas Terbesar<a class="headerlink" href="#deteksi-komunitas-algoritma-louvain-pada-komunitas-terbesar" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Deteksi Komunitas (Algoritma Louvain) pada Komunitas Terbesar&quot;</span><span class="p">)</span>
+
+<span class="n">partisi_sub</span> <span class="o">=</span> <span class="n">community_louvain</span><span class="o">.</span><span class="n">best_partition</span><span class="p">(</span><span class="n">subgraph_terbesar</span><span class="p">)</span>
+
+<span class="c1"># Hitung modularitas</span>
+<span class="n">mod_sub</span> <span class="o">=</span> <span class="n">community_louvain</span><span class="o">.</span><span class="n">modularity</span><span class="p">(</span><span class="n">partisi_sub</span><span class="p">,</span> <span class="n">subgraph_terbesar</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Modularitas Komunitas Terbesar: </span><span class="si">{</span><span class="n">mod_sub</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Simpan hasil ke DataFrame</span>
+<span class="n">data_partisi_sub</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="nb">list</span><span class="p">(</span><span class="n">partisi_sub</span><span class="o">.</span><span class="n">items</span><span class="p">()),</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Node&#39;</span><span class="p">,</span> <span class="s1">&#39;Komunitas_Sub&#39;</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">data_partisi_sub</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualisasi Deteksi Komunitas Dari Komunitas Terbesar</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">))</span>
+
+<span class="n">warna_node_sub</span> <span class="o">=</span> <span class="p">[</span><span class="n">partisi_sub</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">subgraph_terbesar</span><span class="o">.</span><span class="n">nodes</span><span class="p">()]</span>
+
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span>
+    <span class="n">subgraph_terbesar</span><span class="p">,</span>
+    <span class="n">pos_sub</span><span class="p">,</span>
+    <span class="n">node_color</span><span class="o">=</span><span class="n">warna_node_sub</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">tab20</span><span class="p">,</span>
+    <span class="n">node_size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span>
+    <span class="n">with_labels</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_labels</span><span class="p">(</span>
+    <span class="n">subgraph_terbesar</span><span class="p">,</span>
+    <span class="n">pos_sub</span><span class="p">,</span>
+    <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="n">n</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">subgraph_terbesar</span><span class="o">.</span><span class="n">nodes</span><span class="p">()},</span>
+    <span class="n">font_size</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+    <span class="n">font_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span>
+<span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Deteksi Sub-Komunitas (Louvain) pada Komunitas Terbesar&quot;</span><span class="p">,</span>
+          <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 <section id="code-tugas-8-deteksi-komunitas-facebook">
-<h2>6. Code Tugas 8 - Deteksi Komunitas (Facebook)<a class="headerlink" href="#code-tugas-8-deteksi-komunitas-facebook" title="Link to this heading">#</a></h2>
+<h2>10. Code Tugas 8 - Deteksi Komunitas (Facebook)<a class="headerlink" href="#code-tugas-8-deteksi-komunitas-facebook" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://colab.research.google.com/drive/1qjNt_vC83UZzIIFyAcDEds1ucZRRHOeA?usp=sharing">PPW_Tugas8_DeteksiKomunitas(Facebook)</a></p></li>
 </ul>
@@ -930,6 +1073,15 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
         <p class="prev-next-title"><strong>LogFile</strong></p>
       </div>
     </a>
+    <a class="right-next"
+       href="crawling_twitter.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><strong>Crawling Twitter</strong></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -953,7 +1105,11 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#membuat-graph">3. Membuat Graph</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deteksi-komunitas-algoritma-louvain">4. Deteksi Komunitas (Algoritma Louvain)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-modularitas">5. Hitung Modularitas</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-tugas-8-deteksi-komunitas-facebook">6. Code Tugas 8 - Deteksi Komunitas (Facebook)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menampilkan-anggota-setiap-komunitas">6. Menampilkan Anggota Setiap Komunitas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-komunitas-terbesar">7. Menentukan Komunitas Terbesar</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subgraph-dari-komunitas-terbesar">8. Subgraph dari Komunitas Terbesar</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deteksi-komunitas-algoritma-louvain-pada-komunitas-terbesar">9. Deteksi Komunitas (Algoritma Louvain) pada Komunitas Terbesar</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-tugas-8-deteksi-komunitas-facebook">10. Code Tugas 8 - Deteksi Komunitas (Facebook)</a></li>
 </ul>
 </li>
 </ul>

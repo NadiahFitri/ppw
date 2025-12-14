@@ -252,5 +252,128 @@ modularitas_manual = sum(community_contribution(c) for c in communities)
 print(f"Modularity Manual: {modularitas_manual:.4f}")
 ```
 
-## 6. Code Tugas 8 - Deteksi Komunitas (Facebook)
+## 6. Menampilkan Anggota Setiap Komunitas
+
+```{code-cell}
+print("Anggota setiap komunitas:")
+
+# Membuat dictionary komunitas -> anggota
+anggota_komunitas = {}
+for node, kom in partisi.items():
+    anggota_komunitas.setdefault(kom, []).append(node)
+
+# Ubah ke DataFrame agar mudah dilihat
+data_anggota_komunitas = pd.DataFrame({
+    'Komunitas': list(anggota_komunitas.keys()),
+    'Jumlah_Anggota': [len(v) for v in anggota_komunitas.values()],
+    'Anggota_Node': list(anggota_komunitas.values())
+})
+
+display(data_anggota_komunitas)
+```
+
+## 7. Menentukan Komunitas Terbesar
+
+```{code-cell}
+komunitas_terbesar = max(anggota_komunitas, key=lambda k: len(anggota_komunitas[k]))
+anggota_terbesar = anggota_komunitas[komunitas_terbesar]
+
+print(f"Komunitas terbesar: {komunitas_terbesar}")
+print(f"Jumlah anggota   : {len(anggota_terbesar)}")
+```
+
+## 8. Subgraph dari Komunitas Terbesar
+
+```{code-cell}
+subgraph_terbesar = graph.subgraph(anggota_terbesar)
+
+print("Info subgraph komunitas terbesar:")
+print("Jumlah node :", subgraph_terbesar.number_of_nodes())
+print("Jumlah edge :", subgraph_terbesar.number_of_edges())
+```
+
+```{code-cell}
+# Visualisasi Subgraph Komunitas Terbesar
+plt.figure(figsize=(25, 25))
+
+pos_sub = nx.spring_layout(subgraph_terbesar, seed=42)
+
+nx.draw_networkx_nodes(
+    subgraph_terbesar,
+    pos_sub,
+    node_size=40,
+    node_color='orange'
+)
+
+nx.draw_networkx_edges(
+    subgraph_terbesar,
+    pos_sub,
+    width=0.4,
+    alpha=0.5,
+    edge_color='black'
+)
+
+nx.draw_networkx_labels(
+    subgraph_terbesar,
+    pos_sub,
+    font_size=8,
+    font_color='black'
+)
+
+plt.title("Graph Komunitas Terbesar Facebook", fontsize=14, fontweight='bold')
+plt.axis("off")
+plt.show()
+```
+
+## 9. Deteksi Komunitas (Algoritma Louvain) pada Komunitas Terbesar
+
+```{code-cell}
+print("Deteksi Komunitas (Algoritma Louvain) pada Komunitas Terbesar")
+
+partisi_sub = community_louvain.best_partition(subgraph_terbesar)
+
+# Hitung modularitas
+mod_sub = community_louvain.modularity(partisi_sub, subgraph_terbesar)
+
+print(f"Modularitas Komunitas Terbesar: {mod_sub:.4f}")
+
+# Simpan hasil ke DataFrame
+data_partisi_sub = pd.DataFrame(
+    list(partisi_sub.items()),
+    columns=['Node', 'Komunitas_Sub']
+)
+
+display(data_partisi_sub)
+```
+
+```{code-cell}
+# Visualisasi Deteksi Komunitas Dari Komunitas Terbesar
+plt.figure(figsize=(25, 25))
+
+warna_node_sub = [partisi_sub[n] for n in subgraph_terbesar.nodes()]
+
+nx.draw(
+    subgraph_terbesar,
+    pos_sub,
+    node_color=warna_node_sub,
+    cmap=plt.cm.tab20,
+    node_size=40,
+    with_labels=False
+)
+
+nx.draw_networkx_labels(
+    subgraph_terbesar,
+    pos_sub,
+    labels={n: str(n) for n in subgraph_terbesar.nodes()},
+    font_size=8,
+    font_color='black'
+)
+
+plt.title("Deteksi Sub-Komunitas (Louvain) pada Komunitas Terbesar",
+          fontsize=14, fontweight='bold')
+plt.axis("off")
+plt.show()
+```
+
+## 10. Code Tugas 8 - Deteksi Komunitas (Facebook)
 - [PPW_Tugas8_DeteksiKomunitas(Facebook)](https://colab.research.google.com/drive/1qjNt_vC83UZzIIFyAcDEds1ucZRRHOeA?usp=sharing)

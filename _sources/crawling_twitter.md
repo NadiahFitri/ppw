@@ -95,16 +95,16 @@ from IPython.display import display
 ## 3. Inisialisasi
 
 ```{code-cell}
-token_tweeter = "85c8d4695e95b5679a7a4148f9c37a74616fd7a8"  # bisa ganti
+token_tweeter = "7bb4dc6014b8d5c333c26eb085b59bc7b87de4ae"  # bisa ganti
 ```
 
 ```{code-cell}
-limit = 200 # batas ambil data
-nama_file = "PPW_Tugas8_Crawling(Tweeter).csv"
+limit = 2000 # batas ambil data
+nama_file = "PPW_Tugas8_Crawling(Twitter).csv"
 kata_kunci = "politik"
 hashtag = "#politik"
 
-query = f'({kata_kunci} OR {hashtag}) lang:id since:2024-01-01 until:2025-12-02'
+query = f'({kata_kunci} OR {hashtag}) lang:id'
 print(f"Proses crawling akan dimulai menggunakan kata kunci '{kata_kunci}' dan hashtag '{hashtag}'")
 ```
 
